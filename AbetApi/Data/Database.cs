@@ -72,28 +72,28 @@ namespace AbetApi.Data
             _ = Course.AddCourse("Fall", 2022, new Course("dr0702", "2110", "Foundations of Data Structures", "", false, "CSCE"));
 
             // add sections to courses
-            // TODO: Add number of students for each section.
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("pls0112", false, "002", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("amm0813", false, "003", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("amm0813", false, "004", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("dr0702", false, "501", 0));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("pls0112", false, "001", 120));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("pls0112", false, "002", 120));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("amm0813", false, "003", 130));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("amm0813", false, "004", 94));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("dr0702", false, "501", 25));
 
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1035", new Section("bj0141", false, "001", 0));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1035", new Section("bj0141", false, "001", 32));
 
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1040", new Section("dmk0080", false, "001", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1040", new Section("dmk0080", false, "002", 0));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1040", new Section("dmk0080", false, "001", 118));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1040", new Section("dmk0080", false, "002", 118));
 
-            _ = Section.AddSection("Fall", 2022, "CSCE", "1045", new Section("bm0756", false, "001", 0));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "1045", new Section("bm0756", false, "001", 32));
 
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("yl0340", false, "001", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("yl0340", false, "002", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("yl0340", false, "003", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("hw0109", false, "004", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("dr0702", false, "550", 0));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("yl0340", false, "001", 75));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("yl0340", false, "002", 75));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("yl0340", false, "003", 68));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("hw0109", false, "004", 95));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2100", new Section("dr0702", false, "550", 40));
 
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("csc0168", false, "001", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("csc0168", false, "002", 0));
-            _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("dr0702", false, "501", 0)); // missing number of students (currently 0)
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("csc0168", false, "001", 110));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("csc0168", false, "002", 110));
+            _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("dr0702", false, "501", 40)); // missing number of students (currently 0)
 
             // add major outcomes
             _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("1", "An ability to identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics."));
