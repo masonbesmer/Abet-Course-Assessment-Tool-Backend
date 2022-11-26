@@ -1,2 +1,2 @@
 # ABET_Course_Assessment_Tool
-Capstone project Spring '21
+Capstone project Fall 2022
