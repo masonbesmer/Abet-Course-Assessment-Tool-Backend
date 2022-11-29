@@ -43,6 +43,7 @@ namespace AbetApi.Data
 
         public void WIPDoStuff()
         {
+
             /*
             _ = Semester.AddSemester(new Semester("Spring", 2022));
             _ = Course.AddCourse("Spring", 2022, new Course("cas0231", "1030", "Something", "", false, "CSCE"));
@@ -163,9 +164,9 @@ namespace AbetApi.Data
             //_ = Semester.AddSemester(new Semester("Fall", 2022));
             //Semester.DeepCopy("Fall", 2022, "Spring", 2022);
 
-            //WipeTables();
-
             /* ================= INFINITE LOOP & TEAM 27 ================= */
+
+            WipeTables();
 
             // create a new semester
             _ = Semester.AddSemester(new Semester("Fall", 2022));
