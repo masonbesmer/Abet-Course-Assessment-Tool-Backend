@@ -284,10 +284,10 @@ namespace AbetApi.Data
             // link major outcomes to course outcomes
             // HELP: how do you guys want to link these? do we need to ask for more info?
             //                                                courseOutcomeName ->|   mjr.   |<- majorOutcomeName
-            _ = CourseOutcome.LinkToMajorOutcome("Spring", 2022, "CSCE", "1030", "1", "CS", "1");
-            _ = CourseOutcome.LinkToMajorOutcome("Spring", 2022, "CSCE", "1030", "1", "CS", "2");
-            _ = CourseOutcome.LinkToMajorOutcome("Spring", 2022, "CSCE", "1030", "2", "CS", "3");
-            _ = CourseOutcome.LinkToMajorOutcome("Spring", 2022, "CSCE", "1030", "3", "CS", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "1", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "2", "CS", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CS", "3");
 
             //Adds Users
             _ = User.AddUser(new User("Curtis", "Chambers", "csc0168"));
