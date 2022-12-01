@@ -289,6 +289,35 @@ namespace AbetApi.Data
             _ = CourseOutcome.LinkToMajorOutcome("Spring", 2022, "CSCE", "1030", "2", "CS", "3");
             _ = CourseOutcome.LinkToMajorOutcome("Spring", 2022, "CSCE", "1030", "3", "CS", "3");
 
+            //Adds Users
+            _ = User.AddUser(new User("Curtis", "Chambers", "csc0168"));
+            _ = User.AddUser(new User("Beilei", "Jiang", "bj0141"));
+            _ = User.AddUser(new User("David", "Keathly", "dmk0080"));
+            _ = User.AddUser(new User("Yuan", "Li", "yl0340"));
+            _ = User.AddUser(new User("Amar", "Majarjan", "amm0813"));
+            _ = User.AddUser(new User("Beddhu", "Murali", "bm0756"));
+            _ = User.AddUser(new User("Diana", "Rabah", "dr0702"));
+            _ = User.AddUser(new User("Pradhumna", "Shrestha", "pls0112"));
+            _ = User.AddUser(new User("Haili", "Wang", "hw0109"));
+
+            //Creates default roles
+            _ = Role.CreateRole(new Role("Admin"));
+            _ = Role.CreateRole(new Role("Coordinator"));
+            _ = Role.CreateRole(new Role("Instructor"));
+            _ = Role.CreateRole(new Role("Student"));
+
+            //Gives admin access to:
+
+            //Gives instructor access to:
+            _ = Role.AddRoleToUser("csc0168", "Instructor");
+            _ = Role.AddRoleToUser("bj0141", "Instructor");
+            _ = Role.AddRoleToUser("dmk0080", "Instructor");
+            _ = Role.AddRoleToUser("yl0340", "Instructor");
+            _ = Role.AddRoleToUser("amm0813", "Instructor");
+            _ = Role.AddRoleToUser("bm0756", "Instructor");
+            _ = Role.AddRoleToUser("dr0702", "Instructor");
+            _ = Role.AddRoleToUser("pls0112", "Instructor");
+            _ = Role.AddRoleToUser("hw0109", "Instructor");
 
             //For testing the deep copy.
             //_ = Semester.AddSemester(new Semester("Spring", 2023));
