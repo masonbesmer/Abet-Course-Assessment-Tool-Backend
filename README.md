@@ -12,4 +12,6 @@ Download and unzip the project. Open the the AbetApi folder and open the Solutio
 Now that the back end web server is running, start the [front end](https://github.com/huynggg/Abet-Course-Assessment-Tool-Frontend).
 Open [http://localhost:3000](http://127.0.0.1:3000) in your browser to see the result.
 
-In order to login, you must be connected to a UNT network and have valid EUID to login.
+This project uses MySQL Workbench and MySQL Server for the database to connect to the backend. Download MySQL Installer Community to install and configure both MySQL applications at the same location. Make sure the root password set in the MySQL Server configuration is the same as the password in the file appsettings.json. That file is located in the AbetApi folder within the backend.
+
+In order to login after all of the above has been completed, you must be connected to a UNT network with their vpn to have sign in using your EUID and password.
