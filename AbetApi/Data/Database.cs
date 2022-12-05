@@ -177,22 +177,22 @@ namespace AbetApi.Data
             _ = Major.AddMajor("Fall", 2022, "IT");
 
             // add courses to semester
-            _ = Course.AddCourse("Fall", 2022, new Course("pls0112", "1030", "Computer Science I", "", false, "CSCE"));
-            _ = Course.AddCourse("Fall", 2022, new Course("amm0813", "1030", "Computer Science I", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
             //_ = Course.AddCourse("Fall", 2022, new Course("amm0813", "1030", "Computer Science I", "", false, "CSCE")); // duplicate
-            _ = Course.AddCourse("Fall", 2022, new Course("dr0702", "1030", "Computer Science I", "", false, "CSCE"));
-            _ = Course.AddCourse("Fall", 2022, new Course("bj0141", "1035", "Computer Programming I", "", false, "CSCE"));
-            _ = Course.AddCourse("Fall", 2022, new Course("dmk0080", "1040", "Computer Science II", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1035", "Computer Programming I", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1040", "Computer Science II", "", false, "CSCE"));
             //_ = Course.AddCourse("Fall", 2022, new Course("dmk0080", "1040", "Computer Science II", "", false, "CSCE")); // duplicate
-            _ = Course.AddCourse("Fall", 2022, new Course("bm0756", "1045", "Computer Programming II", "", false, "CSCE"));
-            _ = Course.AddCourse("Fall", 2022, new Course("yl0340", "2100", "Foundations of Computing", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1045", "Computer Programming II", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
             //_ = Course.AddCourse("Fall", 2022, new Course("yl0340", "2100", "Foundations of Computing", "", false, "CSCE")); // duplicate
             //_ = Course.AddCourse("Fall", 2022, new Course("yl0340", "2100", "Foundations of Computing", "", false, "CSCE")); // duplicate
-            _ = Course.AddCourse("Fall", 2022, new Course("hw0109", "2100", "Foundations of Computing", "", false, "CSCE"));
-            _ = Course.AddCourse("Fall", 2022, new Course("dr0702", "2100", "Foundations of Computing", "", false, "CSCE"));
-            _ = Course.AddCourse("Fall", 2022, new Course("csc0168", "2110", "Foundations of Data Structures", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2110", "Foundations of Data Structures", "", false, "CSCE"));
             //_ = Course.AddCourse("Fall", 2022, new Course("csc0168", "2110", "Foundations of Data Structures", "", false, "CSCE")); // duplicate
-            _ = Course.AddCourse("Fall", 2022, new Course("dr0702", "2110", "Foundations of Data Structures", "", false, "CSCE"));
+            _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2110", "Foundations of Data Structures", "", false, "CSCE"));
 
             // add sections to courses
             _ = Section.AddSection("Fall", 2022, "CSCE", "1030", new Section("pls0112", false, "001", 120));
@@ -300,6 +300,9 @@ namespace AbetApi.Data
             _ = User.AddUser(new User("Pradhumna", "Shrestha", "pls0112"));
             _ = User.AddUser(new User("Haili", "Wang", "hw0109"));
 
+            _ = User.AddUser(new User("Co", "Ordinator", "coordinator"));
+            _ = User.AddUser(new User("Ad", "Min", "admin"));
+
             //Creates default roles
             _ = Role.CreateRole(new Role("Admin"));
             _ = Role.CreateRole(new Role("Coordinator"));
@@ -318,6 +321,8 @@ namespace AbetApi.Data
             _ = Role.AddRoleToUser("dr0702", "Instructor");
             _ = Role.AddRoleToUser("pls0112", "Instructor");
             _ = Role.AddRoleToUser("hw0109", "Instructor");
+            _ = Role.AddRoleToUser("coordinator", "Coordinator");
+            _ = Role.AddRoleToUser("admin", "Admin");
 
             //For testing the deep copy.
             //_ = Semester.AddSemester(new Semester("Spring", 2023));
