@@ -179,19 +179,14 @@ namespace AbetApi.Data
             // add courses to semester
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
-            //_ = Course.AddCourse("Fall", 2022, new Course("amm0813", "1030", "Computer Science I", "", false, "CSCE")); // duplicate
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1035", "Computer Programming I", "", false, "CSCE"));
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1040", "Computer Science II", "", false, "CSCE"));
-            //_ = Course.AddCourse("Fall", 2022, new Course("dmk0080", "1040", "Computer Science II", "", false, "CSCE")); // duplicate
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1045", "Computer Programming II", "", false, "CSCE"));
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
-            //_ = Course.AddCourse("Fall", 2022, new Course("yl0340", "2100", "Foundations of Computing", "", false, "CSCE")); // duplicate
-            //_ = Course.AddCourse("Fall", 2022, new Course("yl0340", "2100", "Foundations of Computing", "", false, "CSCE")); // duplicate
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2110", "Foundations of Data Structures", "", false, "CSCE"));
-            //_ = Course.AddCourse("Fall", 2022, new Course("csc0168", "2110", "Foundations of Data Structures", "", false, "CSCE")); // duplicate
             _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "2110", "Foundations of Data Structures", "", false, "CSCE"));
 
             // add sections to courses
