@@ -218,17 +218,28 @@ namespace AbetApi.Data
             _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("csc0168", false, "002", 110));
             _ = Section.AddSection("Fall", 2022, "CSCE", "2110", new Section("dr0702", false, "501", 40));
 
-            // add major outcomes
+            // add major outcomes ** STUDENT OUTCOMES ** 
             _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("1", "An ability to identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics."));
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("2", "An ability to acquire and apply new knowledge as needed, using appropriate learning strategies."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("2", "An ability to apply engineering design to produce solutions that meet specified needs with consideration of public health, safety,and welfare, as well as global, cultural, social, environmental, and economic factors."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("3", "An ability to communicate effectively with a range of audiences."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("4", "An ability to recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("5", "An ability to function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("6", "An ability to develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CE", new MajorOutcome("7", "An ability to acquire and apply new knowledge as needed, using appropriate learning strategies."));
 
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("1", "Analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."));
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("2", "Design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."));
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("3", "Apply computer science theory and software development fundamentals to produce computing-based solutions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("1", "An ability to analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("2", "An ability to design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("3", "An ability to communicate effectively in a variety of professional contexts."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("4", "An ability to recognize professional responsibilities and make informed judgements in computing practice based on legal and ethical principles."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("5", "An ability to function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "CS", new MajorOutcome("6", "An ability to apply computer science theory and software development fundamentals to produce computing-based solutions."));
 
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("1", "Analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."));
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("2", "Design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."));
-            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("3", "Identify and analyze user needs and to take them into account in the selection, creation, integration, evaluation, and administration of computing-based systems."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("1", "An ability to analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("2", "An ability to design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("3", "An ability to communicate effectively in a variety of professional contexts."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("4", "An ability to recognize professional responsibilities and make informed judgements in computing practice based on legal and ethical principles."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("5", "An ability to function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2022, "IT", new MajorOutcome("6", "An ability to identify and analyze user needs and to take them into account in the selection, creation, integration, evaluation, and administration of computing-based systems."));
 
             // add course outcome to course
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2022, "CSCE", "1030", new CourseOutcome("1", "Describe how a computer’s CPU, Main Memory, Secondary Storage and I/O work together to execute a computer program."));
@@ -281,13 +292,86 @@ namespace AbetApi.Data
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2022, "CSCE", "2110", new CourseOutcome("7", "Use regular expressions in C/C++ programs to match patterns."));
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2022, "CSCE", "2110", new CourseOutcome("8", "Use of hash tables in design of software."));
 
-            // link major outcomes to course outcomes
-            // HELP: how do you guys want to link these? do we need to ask for more info?
-            //                                                courseOutcomeName ->|   mjr.   |<- majorOutcomeName
-            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "1", "CS", "1");
-            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "1", "CS", "2");
-            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "2", "CS", "3");
-            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CS", "3");
+            // link major outcomes to course outcomes **STUDENT OUTCOME TO COURSE OUTCOME**
+            // 1030 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "1", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "5", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "7", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "4", "CE", "4");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "4", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "7", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "4", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "7", "CE", "7");
+            // 1035 CE (same as 1030)
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "1", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "5", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "7", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "4", "CE", "4");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "3", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "4", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "7", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "3", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "4", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "7", "CE", "7");
+            // 1040 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "1", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "2", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "5", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "7", "CE", "2");
+            // 1045 CE (same as 1040)
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "1", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "5", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "7", "CE", "2");
+            // 2100 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "1", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "5", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CE", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "5", "CE", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "4", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "5", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "7", "CE", "7");
+            // 2110 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "5", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "1", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "4", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "1", "CE", "5");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CE", "5");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CE", "5");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "4", "CE", "5");
 
             //Adds Users
             _ = User.AddUser(new User("Curtis", "Chambers", "csc0168"));
