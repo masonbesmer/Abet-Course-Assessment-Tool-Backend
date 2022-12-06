@@ -372,6 +372,71 @@ namespace AbetApi.Data
             _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "2", "CE", "5");
             _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "3", "CE", "5");
             _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "4", "CE", "5");
+            // 1030 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "2", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "5", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "4", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1030", "7", "CS", "6");
+            // 1035 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "3", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "2", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "5", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "4", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1035", "7", "CS", "6");
+            // 1040 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "2", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "5", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "3", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "4", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "2", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1040", "3", "CS", "6");
+            // 1045 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "5", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "4", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "2", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "1045", "3", "CS", "6");
+            // 2100 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "1", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "2", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "5", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "7", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "8", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "3", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "7", "CS", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2100", "6", "CS", "6");
+            // 2110 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "7", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "8", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "4", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "5", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "1", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "2", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "5", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2022, "CSCE", "2110", "6", "CS", "6");
 
             //Adds Users
             _ = User.AddUser(new User("Curtis", "Chambers", "csc0168"));
