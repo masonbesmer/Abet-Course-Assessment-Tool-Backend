@@ -761,13 +761,13 @@ namespace AbetApi.EFModels
                 //Load the links between a course outcome and major outcomes.
                 context.Entry(tempCourseOutcome).Collection(courseOutcome => courseOutcome.MajorOutcomes).Load();
 
-                foreach (MajorOutcome majorOutcome in tempCourseOutcome.MajorOutcomes)
-                {
-                    if(majorOutcome.Name == majorOutcomeName)
-                    {
-                        throw new ArgumentException("The course outcome specified already has a link to the major outcome specified.");
-                    }
-                }
+                //foreach (MajorOutcome majorOutcome in tempCourseOutcome.MajorOutcomes)
+                //{
+                //    if(majorOutcome.Name == majorOutcomeName)
+                //    {
+                //        throw new ArgumentException("The course outcome specified already has a link to the major outcome specified.");
+                //    }
+                //}
                 
                 //Adds the outcome designator to the course outcomes
                 tempCourseOutcome.MajorOutcomes.Add(tempMajorOutcome);
