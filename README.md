@@ -5,13 +5,13 @@ Each term, students and faculty enter data for each course they are enrolled in/
 This is the _back-end_ for the Fall 2020 - Spring 2023 UNT ABET Course Assessment Tool project.
 
 ## Getting Started
-This is a [.NET]() project written using C#. It uses Microsoft IIS Express to create and host a web server for the backend.
+This is a [.NET](https://dotnet.microsoft.com/en-US/) project written using C#. It uses Microsoft IIS Express to create and host a web server for the backend.
 
-Download and unzip the project. Open the the AbetApi folder and open the Solution file in Microsoft Visual Studio 2019/2022. When the project is loaded, in the ribbon, click the green arrow next to IIS Express. This will start the local IIS web server and the browser will open to a Swagger page with debug commands.
+Download and unzip the project. Open the the AbetApi folder and open the Solution file in Microsoft Visual Studio 2019/2022. When the project is loaded, in the ribbon, click the green arrow next to "IIS Express" to run. This will start the local IIS web server and the browser will open to a Swagger page with debug commands.
 
-Now that the back end web server is running, start the [front end](https://github.com/huynggg/Abet-Course-Assessment-Tool-Frontend).
+Now that the back-end web server is running, start the [front end](https://github.com/huynggg/Abet-Course-Assessment-Tool-Frontend).
 Open [http://localhost:3000](http://127.0.0.1:3000) in your browser to see the result.
 
-This project uses MySQL Workbench and MySQL Server for the database to connect to the backend. Download MySQL Installer Community to install and configure both MySQL applications at the same location. Make sure the root password set in the MySQL Server configuration is the same as the password in the file appsettings.json. That file is located in the AbetApi folder within the backend.
+This project uses [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) and MySQL Server for the database to connect to the backend. Download MySQL Installer Community to install and configure both MySQL applications at the same location. Make sure the root password set in the MySQL Server configuration is the same as the password in the file appsettings.json. That file is located in the AbetApi folder within the backend.
 
 In order to login after all of the above has been completed, you must be connected to a UNT network with their vpn to have sign in using your EUID and password.
