@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AbetApi.Controllers
 {
+    // Set the course outcomes 
     [ApiController]
     [Route("[controller]")]
     public class CourseOutcomeController : ControllerBase

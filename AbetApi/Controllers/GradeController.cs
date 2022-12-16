@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace AbetApi.Controllers
 {
+    //Set & Get grades
     [ApiController]
     [Route("[controller]")]
     public class GradeController : ControllerBase

@@ -9,6 +9,7 @@ using AbetApi.Authentication;
 using Microsoft.AspNetCore.Authorization;
 
 namespace AbetApi.Controllers
+//As its named, it controlls the courses. Add Course, Delete Course, Edit Course
 {
     [ApiController]
     [Route("[controller]")]

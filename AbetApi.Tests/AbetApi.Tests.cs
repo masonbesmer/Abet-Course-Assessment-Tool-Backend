@@ -62,7 +62,7 @@ namespace AbetApi.Tests
         {
             return User.GetUser(euid).Result;
         }
-
+    //ADD USER/CREATE USER 
         [TestMethod]
         public void TestAddUser()
         {
@@ -81,7 +81,7 @@ namespace AbetApi.Tests
             }
 
         }
-
+        //DELETE USER/REMOVE USER
         [TestMethod]
         public void TestDeleteUser()
         {
@@ -99,7 +99,7 @@ namespace AbetApi.Tests
                 RemoveUserHelper(user.EUID);
             }
         }
-
+        //EDIT USER
         [TestMethod]
         public void TestEditUser()
         {
@@ -316,7 +316,9 @@ namespace AbetApi.Tests
             Assert.IsFalse(chkMajor);
         }
 
-        /* Test(s) for the Course methods */
+        /* Test(s) for the Course methods 
+            Input information for the CourseHelper
+        */
         public Course CreateCourseHelper(string coordinator, string coursenumber, string displayname, string coordinatorcomment, bool iscoursecompleted, string department)
         {
             return new Course(coordinator, coursenumber, displayname, coordinatorcomment, iscoursecompleted, department);
