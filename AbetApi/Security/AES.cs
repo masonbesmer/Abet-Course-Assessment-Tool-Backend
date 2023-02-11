@@ -59,6 +59,34 @@ namespace AbetApi.Security {
         }
 
 
+        private static byte[] EncryptPassword(string plaintextPassword, byte[] salt, int iterations, int keyLength, int initializationVectorLength)
+        {
+
+            byte[] key, initializationVector;
+            GenerateKeyAndIV(plaintextPassword, salt, iterations, keyLength, initializationVectorLength, out key, out initializationVector);
+
+            using (var aes = Aes.Create())
+            {
+
+                aes.Key = key;
+                aes.IV = initializationVector;
+
+                using (var memoryStream = new MemoryStream())
+                using (var encryptor = aes.CreateEncryptor())
+                using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                {
+
+                    byte[] plaintextBytes = Encoding.UTF8.GetBytes(plaintextPassword);
+
+                    cryptoStream.Write(plaintextBytes, 0, plaintextBytes.Length);
+                    cryptoStream.FlushFinalBlock();
+
+                    return memoryStream.ToArray();
+                }
+            }
+        }
+
+
         // parses the JSON data into an object that can be accessed
         private static AESConfiguration getConfiguration (string configurationFile) {
             string aesConfigData = File.ReadAllText(configurationFile);
@@ -71,6 +99,14 @@ namespace AbetApi.Security {
         public static string Decrypt(byte[] encryptedPassword) {
             AESConfiguration aesConfig = getConfiguration("./aesConfig.json"); // parses the JSON data into an object that can be accessed
             return DecryptPassword(encryptedPassword, Encoding.UTF8.GetBytes(aesConfig.Salt), aesConfig.Iterations, aesConfig.KeyLength, aesConfig.InitializationVectorLength); // calls the AES decryption algorithm with configuration
+        }
+
+
+        // returns the encrypted password as a bytearray
+        public static byte[] Encrypt(string plaintextPassword)
+        {
+            AESConfiguration aesConfig = getConfiguration("aesConfig.json"); // parses the JSON data into an object that can be accessed
+            return EncryptPassword(plaintextPassword, Encoding.UTF8.GetBytes(aesConfig.Salt), aesConfig.Iterations, aesConfig.KeyLength, aesConfig.InitializationVectorLength); // calls the AES encryption algorithm with configuration
         }
 
 
