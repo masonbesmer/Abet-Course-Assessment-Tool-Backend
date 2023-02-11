@@ -381,3 +381,5 @@ AbetApi/obj/project.assets.json
 AbetApi/obj/project.nuget.cache
 AbetApi/obj/
 AbetApi/bin/
+/AbetApi/Security/pbkdf2Config.json
+/AbetApi/Security/aesConfig.json
