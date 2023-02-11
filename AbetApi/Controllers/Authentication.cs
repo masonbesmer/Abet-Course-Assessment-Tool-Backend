@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using AbetApi.Authentication;
 
-
 namespace AbetApi.Controllers
 {
     public class Authentication : ControllerBase
@@ -21,9 +20,9 @@ namespace AbetApi.Controllers
 
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
         [HttpPost("Login")]
-        public ActionResult Login(string EUID, string password)
+        public ActionResult Login(string EUID, string encryptedPassword)
         {
-            if (string.IsNullOrEmpty(EUID) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(EUID) || string.IsNullOrEmpty(encryptedPassword))
                 return BadRequest();
 
             //A list used to store all of the roles given to the user logging in
@@ -54,6 +53,9 @@ namespace AbetApi.Controllers
             if (rolesToAdd.Count > 0)
                 return Ok(new { token = tokenGenerator.GenerateToken(EUID, rolesToAdd) });
             ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+            byte[] encryptedPasswordBytes = Convert.FromBase64String(encryptedPassword);
+            string password = Security.AES.Decrypt(encryptedPasswordBytes);
 
             //Validates user/password combo with UNT domain controller
             ldap.ValidateCredentials(EUID, password);
