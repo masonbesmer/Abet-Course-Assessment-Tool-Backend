@@ -267,10 +267,10 @@ namespace AbetApi.EFModels
                 foreach (Course course in semester.Courses)
                 {
                     //Check for duplicates.
-                    if (course.CourseNumber == NewValue.CourseNumber)
-                    {
-                        throw new ArgumentException("That course number already exists in the database.");
-                    }
+                    //if (course.CourseNumber == NewValue.CourseNumber)
+                    //{
+                    //    throw new ArgumentException("That course number already exists in the database.");
+                    //}
 
                     if (course.Department == department && course.CourseNumber == courseNumber)
                     {

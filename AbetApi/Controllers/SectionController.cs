@@ -57,7 +57,7 @@ namespace AbetApi.Controllers
         //                       instructorEUD string, isSectioncompleted boolean, 
         //                       sectionNumber string,numberOfStudents int
         ////////////////////////////////////////////////////////////////////////////////////
-        [Authorize(Roles = RoleTypes.Admin)]
+        [Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
         [HttpGet("GetSection")]
         public async Task<IActionResult> GetSection(string term, int year, string department, string courseNumber, string sectionNumber)
         {
