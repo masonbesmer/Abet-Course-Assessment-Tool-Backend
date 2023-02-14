@@ -40,7 +40,7 @@ namespace AbetApi.Security {
         private static string DecryptPassword(byte[] encryptedPassword, byte[] salt, int iterations, int keyLength, int initializationVectorLength) {
 
             byte[] key, initializationVector;
-            GenerateKeyAndIV("secret_password", salt, iterations, keyLength, initializationVectorLength, out key, out initializationVector);
+            GenerateKeyAndIV(Encoding.UTF8.GetString(encryptedPassword), salt, iterations, keyLength, initializationVectorLength, out key, out initializationVector);
 
             using (var aes = Aes.Create()) {
 
