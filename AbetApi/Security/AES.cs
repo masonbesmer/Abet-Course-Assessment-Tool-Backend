@@ -9,14 +9,33 @@ namespace AbetApi.Security {
     public class AES
     {
 
+        private readonly byte[] _key;
+        private readonly byte[] _iv;
 
         // this class represents the JSON data so that it can be deserialized from a string into an object
         private class AESConfiguration
         {
-            public string Salt { get; set; }
+            public byte[] Salt { get; set; }
             public int Iterations { get; set; }
             public int KeyLength { get; set; }
             public int InitializationVectorLength { get; set; }
+            public AESConfiguration(byte[] s, int i, int lk, int liv)
+            {
+                Salt = s;
+                Iterations = i;
+                KeyLength = lk;
+                InitializationVectorLength = liv;
+            }
+        }
+
+
+        public AES(string password)
+        {
+            byte[] SALT = Encoding.ASCII.GetBytes(System.Environment.GetEnvironmentVariable("AES_SALT"));
+            int ITERATIONS = System.Convert.ToInt32(System.Environment.GetEnvironmentVariable("AES_ITERATIONS"));
+            int KEY_LENGTH = System.Convert.ToInt32(System.Environment.GetEnvironmentVariable("AES_LEN_KEY"));
+            int INITIALIZATION_VECTOR_LENGTH = System.Convert.ToInt32(System.Environment.GetEnvironmentVariable("AES_LEN_INIT_VEC"));
+            GenerateKeyAndIV(password, SALT, ITERATIONS, KEY_LENGTH, INITIALIZATION_VECTOR_LENGTH, out _key, out _iv);
         }
 
 
@@ -37,76 +56,37 @@ namespace AbetApi.Security {
         }
 
 
-        private static string DecryptPassword(byte[] encryptedPassword, byte[] salt, int iterations, int keyLength, int initializationVectorLength) {
-
-            byte[] key, initializationVector;
-            GenerateKeyAndIV(Encoding.UTF8.GetString(encryptedPassword), salt, iterations, keyLength, initializationVectorLength, out key, out initializationVector);
-
-            using (var aes = Aes.Create()) {
-
-                aes.Key = key;
-                aes.IV = initializationVector;
-
-                using (var memoryStream = new MemoryStream(encryptedPassword))
-                using (var decryptor = aes.CreateDecryptor())
-                using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read)) {
-
-                    using (var streamReader = new StreamReader(cryptoStream)) {
-                        return streamReader.ReadToEnd();
-                    }
-                }
-            }
-        }
-
-
-        private static byte[] EncryptPassword(string plaintextPassword, byte[] salt, int iterations, int keyLength, int initializationVectorLength)
+        public byte[] Encrypt(string plaintext)
         {
+            using var aes = Aes.Create();
+            aes.Key = _key;
+            aes.IV = _iv;
 
-            byte[] key, initializationVector;
-            GenerateKeyAndIV(plaintextPassword, salt, iterations, keyLength, initializationVectorLength, out key, out initializationVector);
+            var textBytes = Encoding.UTF8.GetBytes(plaintext); // get the bytes of the plaintext in UTF-8 format
+            using var cipher = aes.CreateEncryptor(aes.Key, aes.IV);
+            using var memoryStream = new MemoryStream();
+            using var cryptoStream = new CryptoStream(memoryStream, cipher, CryptoStreamMode.Write);
+            cryptoStream.Write(textBytes, 0, textBytes.Length);
+            cryptoStream.FlushFinalBlock();
 
-            using (var aes = Aes.Create())
-            {
-
-                aes.Key = key;
-                aes.IV = initializationVector;
-
-                using (var memoryStream = new MemoryStream())
-                using (var encryptor = aes.CreateEncryptor())
-                using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                {
-
-                    byte[] plaintextBytes = Encoding.UTF8.GetBytes(plaintextPassword);
-
-                    cryptoStream.Write(plaintextBytes, 0, plaintextBytes.Length);
-                    cryptoStream.FlushFinalBlock();
-
-                    return memoryStream.ToArray();
-                }
-            }
+            return memoryStream.ToArray();
         }
 
 
-        // parses the JSON data into an object that can be accessed
-        private static AESConfiguration getConfiguration (string configurationFile) {
-            string aesConfigData = File.ReadAllText(configurationFile);
-            AESConfiguration aesConfig = JsonSerializer.Deserialize<AESConfiguration>(aesConfigData);
-            return aesConfig;
-        }
-
-
-        // returns the decrypted password as a string
-        public static string Decrypt(byte[] encryptedPassword) {
-            AESConfiguration aesConfig = getConfiguration("./aesConfig.json"); // parses the JSON data into an object that can be accessed
-            return DecryptPassword(encryptedPassword, Encoding.UTF8.GetBytes(aesConfig.Salt), aesConfig.Iterations, aesConfig.KeyLength, aesConfig.InitializationVectorLength); // calls the AES decryption algorithm with configuration
-        }
-
-
-        // returns the encrypted password as a bytearray
-        public static byte[] Encrypt(string plaintextPassword)
+        public string Decrypt(byte[] encryptedBytes)
         {
-            AESConfiguration aesConfig = getConfiguration("aesConfig.json"); // parses the JSON data into an object that can be accessed
-            return EncryptPassword(plaintextPassword, Encoding.UTF8.GetBytes(aesConfig.Salt), aesConfig.Iterations, aesConfig.KeyLength, aesConfig.InitializationVectorLength); // calls the AES encryption algorithm with configuration
+            using var aes = Aes.Create();
+            aes.Key = _key;
+            aes.IV = _iv;
+
+            using var cipher = aes.CreateDecryptor(aes.Key, aes.IV);
+            using var memoryStream = new MemoryStream();
+            using var cryptoStream = new CryptoStream(memoryStream, cipher, CryptoStreamMode.Write);
+            cryptoStream.Write(encryptedBytes, 0, encryptedBytes.Length);
+            cryptoStream.FlushFinalBlock();
+
+            var decryptedBytes = memoryStream.ToArray();
+            return Encoding.UTF8.GetString(decryptedBytes, 0, decryptedBytes.Length);
         }
 
 

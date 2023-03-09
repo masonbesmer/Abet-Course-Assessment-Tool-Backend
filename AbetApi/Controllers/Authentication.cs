@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 using AbetApi.Authentication;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace AbetApi.Controllers
 {
@@ -54,8 +58,17 @@ namespace AbetApi.Controllers
                 return Ok(new { token = tokenGenerator.GenerateToken(EUID, rolesToAdd) });
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            byte[] encryptedPasswordBytes = Convert.FromBase64String(encryptedPassword);
-            string password = Security.AES.Decrypt(encryptedPasswordBytes);
+            Console.WriteLine("EUID: " + EUID);
+            Console.WriteLine("Password: " + encryptedPassword);
+
+            //byte[] encryptedPasswordBytes = Convert.FromBase64String(HttpUtility.UrlDecode(encryptedPassword));
+            byte[] encryptedPasswordBytes = Encoding.ASCII.GetBytes(Base64UrlEncoder.Decode(encryptedPassword));
+
+            var cipher = new Security.AES(encryptedPassword);
+
+            string password = cipher.Decrypt(encryptedPasswordBytes);
+
+            Console.WriteLine("Password: " + password);
 
             //Validates user/password combo with UNT domain controller
             ldap.ValidateCredentials(EUID, password);
