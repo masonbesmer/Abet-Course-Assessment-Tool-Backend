@@ -3,5 +3,6 @@
 *.txt
 
 appsettings.json
+launchSettings.json
 
 AbetApi/obj/Debug/
