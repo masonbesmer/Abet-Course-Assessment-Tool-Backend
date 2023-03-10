@@ -29,9 +29,9 @@ namespace AbetApi
             byte[] key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("SecretApiKey"));
 
             byte[] AES_SALT = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("AES_SALT"));
-            int AES_ITERATIONS = System.Convert.ToInt32(Configuration.GetValue<string>("AES_ITERATIONS"));
-            int AES_LEN_KEY = System.Convert.ToInt32(Configuration.GetValue<string>("AES_LEN_KEY"));
-            int AES_LEN_INIT_VEC = System.Convert.ToInt32(Configuration.GetValue<string>("AES_LEN_INIT_VEC"));
+            int AES_ITERATIONS = System.Convert.ToInt32(Environment.GetEnvironmentVariable("AES_ITERATIONS"));
+            int AES_LEN_KEY = System.Convert.ToInt32(Environment.GetEnvironmentVariable("AES_LEN_KEY"));
+            int AES_LEN_INIT_VEC = System.Convert.ToInt32(Environment.GetEnvironmentVariable("AES_LEN_INIT_VEC"));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>

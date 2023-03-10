@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography; // AES, CryptoStream, Rfc2898DeriveBytes
-using System.Text.Json; // JSON Serializer
 using System.Text; // UTF8 Encoding
 using System.IO; // MemoryStream, StreamReader
 
@@ -79,7 +78,7 @@ namespace AbetApi.Security {
             aes.Key = _key;
             aes.IV = _iv;
 
-            using var cipher = aes.CreateDecryptor(aes.Key, aes.IV);
+            using var cipher = aes.CreateDecryptor(aes.Key, aes.IV); // create a cipher using the key and initialization vector
             using var memoryStream = new MemoryStream();
             using var cryptoStream = new CryptoStream(memoryStream, cipher, CryptoStreamMode.Write);
             cryptoStream.Write(encryptedBytes, 0, encryptedBytes.Length);

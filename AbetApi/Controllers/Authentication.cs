@@ -58,17 +58,15 @@ namespace AbetApi.Controllers
                 return Ok(new { token = tokenGenerator.GenerateToken(EUID, rolesToAdd) });
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            Console.WriteLine("EUID: " + EUID);
-            Console.WriteLine("Password: " + encryptedPassword);
+            System.Diagnostics.Debug.WriteLine("EUID: " + EUID);
+            System.Diagnostics.Debug.WriteLine("Password: " + encryptedPassword);
 
             //byte[] encryptedPasswordBytes = Convert.FromBase64String(HttpUtility.UrlDecode(encryptedPassword));
             byte[] encryptedPasswordBytes = Encoding.ASCII.GetBytes(Base64UrlEncoder.Decode(encryptedPassword));
+            var cipher = new Security.AES(encryptedPassword); // create a new cipher object to handle decryption
+            string password = cipher.Decrypt(encryptedPasswordBytes); // decrypt the password using the cipher
 
-            var cipher = new Security.AES(encryptedPassword);
-
-            string password = cipher.Decrypt(encryptedPasswordBytes);
-
-            Console.WriteLine("Password: " + password);
+            System.Diagnostics.Debug.WriteLine("Password: " + password);
 
             //Validates user/password combo with UNT domain controller
             ldap.ValidateCredentials(EUID, password);
@@ -103,7 +101,7 @@ namespace AbetApi.Controllers
                 }
             }
             //If their credentials are incorrect, send an error
-            else if (!ldap.LoginSuccessful && !ldap.InternalErrorOccurred)
+            else if (!ldap.LoginSuccessful && !ldap.InternalErrorOccurred) // login was unsuccessful and the server did NOT encounter an error
                 return BadRequest(new { message = ldap.ErrorMessage });
             //If this endpoint breaks for any other reason
             else
