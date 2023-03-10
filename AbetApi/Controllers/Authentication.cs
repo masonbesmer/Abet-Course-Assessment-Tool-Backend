@@ -24,9 +24,9 @@ namespace AbetApi.Controllers
 
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
         [HttpPost("Login")]
-        public ActionResult Login(string EUID, string encryptedPassword)
+        public ActionResult Login(string EUID, string password)
         {
-            if (string.IsNullOrEmpty(EUID) || string.IsNullOrEmpty(encryptedPassword))
+            if (string.IsNullOrEmpty(EUID) || string.IsNullOrEmpty(password))
                 return BadRequest();
 
             //A list used to store all of the roles given to the user logging in
@@ -59,12 +59,12 @@ namespace AbetApi.Controllers
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             System.Diagnostics.Debug.WriteLine("EUID: " + EUID);
-            System.Diagnostics.Debug.WriteLine("Password: " + encryptedPassword);
+            System.Diagnostics.Debug.WriteLine("Password: " + password);
 
             //byte[] encryptedPasswordBytes = Convert.FromBase64String(HttpUtility.UrlDecode(encryptedPassword));
-            byte[] encryptedPasswordBytes = Encoding.ASCII.GetBytes(Base64UrlEncoder.Decode(encryptedPassword));
-            var cipher = new Security.AES(encryptedPassword); // create a new cipher object to handle decryption
-            string password = cipher.Decrypt(encryptedPasswordBytes); // decrypt the password using the cipher
+            byte[] encryptedPasswordBytes = Encoding.ASCII.GetBytes(Base64UrlEncoder.Decode(password));
+            var cipher = new Security.AES(password); // create a new cipher object to handle decryption
+            password = cipher.Decrypt(encryptedPasswordBytes); // decrypt the password using the cipher
 
             System.Diagnostics.Debug.WriteLine("Password: " + password);
 
