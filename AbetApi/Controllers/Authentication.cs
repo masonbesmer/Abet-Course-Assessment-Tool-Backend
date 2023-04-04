@@ -69,15 +69,6 @@ namespace AbetApi.Controllers
                 return Ok(new { token = tokenGenerator.GenerateToken(EUID, rolesToAdd) });
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            System.Diagnostics.Debug.WriteLine("EUID: " + EUID);
-            System.Diagnostics.Debug.WriteLine("Password: " + password);
-
-            //byte[] encryptedPasswordBytes = Convert.FromBase64String(HttpUtility.UrlDecode(password));
-            //string encryptedPasswordBytes = password;
-            //password = Security.Hash.Decrypt(encryptedPasswordBytes); // decrypt the password using the cipher
-
-            //System.Diagnostics.Debug.WriteLine("Password: " + password);
-
             //Validates user/password combo with UNT domain controller
             ldap.ValidateCredentials(EUID, password);
 
