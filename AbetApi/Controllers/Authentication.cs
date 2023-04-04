@@ -24,8 +24,8 @@ namespace AbetApi.Controllers
 
         public class LoginRequest
         {
-            public string EUID { get; set; }
-            public string Password { get; set; }
+            public string euid { get; set; }
+            public string password { get; set; }
         }
 
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
@@ -33,11 +33,11 @@ namespace AbetApi.Controllers
         public ActionResult Login([FromBody] LoginRequest request)
         {
 
-            string EUID = request.EUID;
-            string password = request.Password;
+            string euid = request.euid;
+            string password = request.password;
 
 
-            if (string.IsNullOrEmpty(EUID) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(euid) || string.IsNullOrEmpty(password))
                 return BadRequest();
 
             //A list used to store all of the roles given to the user logging in
@@ -49,7 +49,7 @@ namespace AbetApi.Controllers
             //This code only works when
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                switch (EUID)
+                switch (euid)
                 {
                     case "admin":
                         rolesToAdd.Add("Admin");
@@ -66,18 +66,18 @@ namespace AbetApi.Controllers
                 }
             }
             if (rolesToAdd.Count > 0)
-                return Ok(new { token = tokenGenerator.GenerateToken(EUID, rolesToAdd) });
+                return Ok(new { token = tokenGenerator.GenerateToken(euid, rolesToAdd) });
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             //Validates user/password combo with UNT domain controller
-            ldap.ValidateCredentials(EUID, password);
+            ldap.ValidateCredentials(euid, password);
 
             //If the login worked, get all of the roles that user has, build a token, and return the token
             if (ldap.LoginSuccessful && !ldap.InternalErrorOccurred)
             {
                 try
                 {
-                    var roles = EFModels.User.GetRolesByUser(EUID).Result;
+                    var roles = EFModels.User.GetRolesByUser(euid).Result;
 
                     //All users are at least a student
                     if (roles == null || roles.Count == 0)
@@ -92,7 +92,7 @@ namespace AbetApi.Controllers
                         }
                     }
 
-                    string token = tokenGenerator.GenerateToken(EUID, rolesToAdd);
+                    string token = tokenGenerator.GenerateToken(euid, rolesToAdd);
 
                     return Ok(new { token }); //user is logged in
                 }
