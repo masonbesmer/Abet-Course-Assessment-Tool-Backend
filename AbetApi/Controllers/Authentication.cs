@@ -22,10 +22,21 @@ namespace AbetApi.Controllers
             this.tokenGenerator = tokenGenerator;
         }
 
+        public class LoginRequest
+        {
+            public string EUID { get; set; }
+            public string Password { get; set; }
+        }
+
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
         [HttpPost("Login")]
-        public ActionResult Login(string EUID, string password)
+        public ActionResult Login([FromBody] LoginRequest request)
         {
+
+            string EUID = request.EUID;
+            string password = request.Password;
+
+
             if (string.IsNullOrEmpty(EUID) || string.IsNullOrEmpty(password))
                 return BadRequest();
 
@@ -61,12 +72,11 @@ namespace AbetApi.Controllers
             System.Diagnostics.Debug.WriteLine("EUID: " + EUID);
             System.Diagnostics.Debug.WriteLine("Password: " + password);
 
-            //byte[] encryptedPasswordBytes = Convert.FromBase64String(HttpUtility.UrlDecode(encryptedPassword));
-            byte[] encryptedPasswordBytes = Encoding.ASCII.GetBytes(Base64UrlEncoder.Decode(password));
-            var cipher = new Security.AES(password); // create a new cipher object to handle decryption
-            password = cipher.Decrypt(encryptedPasswordBytes); // decrypt the password using the cipher
+            //byte[] encryptedPasswordBytes = Convert.FromBase64String(HttpUtility.UrlDecode(password));
+            //string encryptedPasswordBytes = password;
+            //password = Security.Hash.Decrypt(encryptedPasswordBytes); // decrypt the password using the cipher
 
-            System.Diagnostics.Debug.WriteLine("Password: " + password);
+            //System.Diagnostics.Debug.WriteLine("Password: " + password);
 
             //Validates user/password combo with UNT domain controller
             ldap.ValidateCredentials(EUID, password);
@@ -95,7 +105,7 @@ namespace AbetApi.Controllers
 
                     return Ok(new { token }); //user is logged in
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return BadRequest(ex.Message);
                 }
