@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AbetApi.Data;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using static AbetApi.Controllers.Authentication;
 
 namespace AbetApi.EFModels
 {
@@ -23,10 +25,17 @@ namespace AbetApi.EFModels
             this.Name = Name;
         }
 
+        public class CreateRole_Request
+        {
+            public Role role { get; set; }
+        }
         // This function creates a role with the given name
         // Naming convention is the role name starting with uppercase
-        public static async Task CreateRole(Role role)
+        public static async Task CreateRole([FromBody] CreateRole_Request request)
         {
+            //Role role = new Role();
+            Role role = request.role; //?
+
             //Check that the role name is not null or empty.
             if (role.Name == null || role.Name == "")
             {
@@ -53,9 +62,17 @@ namespace AbetApi.EFModels
             }
         } // CreateRole
 
-        // This function gives a selected user a provided role.
-        public async static Task AddRoleToUser(string EUID, string roleName)
+        public class AddRoleToUser_Request
         {
+            public string EUID { get; set; }
+            public string roleName { get; set; }
+        }
+        // This function gives a selected user a provided role.
+        public async static Task AddRoleToUser([FromBody] AddRoleToUser_Request request)
+        {
+            string EUID = request.EUID;
+            string roleName = request.roleName;
+
             //Check that the EUID of the user is not null or empty.
             if (EUID == null || EUID == "")
             {
@@ -110,9 +127,16 @@ namespace AbetApi.EFModels
             }
         } // AddRoleToUser
 
-        // Gets a list of users with the selected role
-        public static async Task<List<User>> GetUsersByRole(string roleName)
+
+        public class GetUsersByRole_Request
         {
+            public string roleName { get; set; }
+        }
+        // Gets a list of users with the selected role
+        public static async Task<List<User>> GetUsersByRole([FromBody] GetUsersByRole_Request request)
+        {
+            string roleName = request.roleName;
+
             //Check that the role name is not null or empty.
             if (roleName == null || roleName == "")
             {
@@ -141,9 +165,16 @@ namespace AbetApi.EFModels
             }
         } // GetUsersByRole
 
-        // This function deletes a selected role
-        public static async Task DeleteRole(string roleName)
+
+        public class DeleteRole_Request
         {
+            public string roleName { get; set; }
+        }
+        // This function deletes a selected role
+        public static async Task DeleteRole([FromBody] DeleteRole_Request request)
+        {
+            string roleName = request.roleName;
+
             //Check that the role name is not null or empty.
             if (roleName == null || roleName == "")
             {
@@ -170,9 +201,18 @@ namespace AbetApi.EFModels
             }
         } // DeleteRole
 
-        // This function removes a role from a user, selected via EUID
-        public async static Task RemoveRoleFromUser(string EUID, string roleName)
+
+        public class RemoveRoleFromUser_Request
         {
+            public string EUID { get; set; }
+            public string roleName { get; set; }
+        }
+        // This function removes a role from a user, selected via EUID
+        public async static Task RemoveRoleFromUser([FromBody] RemoveRoleFromUser_Request request)
+        {
+            string EUID = request.EUID;
+            string roleName = request.roleName;
+
             //Boolean variable for determining if a user has the role specified.
             bool userHasRole = false;
 
