@@ -22,7 +22,7 @@ namespace AbetApi.Controllers
             this.tokenGenerator = tokenGenerator;
         }
 
-        public class LoginRequest
+        public class Login_Request
         {
             public string euid { get; set; }
             public string password { get; set; }
@@ -30,7 +30,7 @@ namespace AbetApi.Controllers
 
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
         [HttpPost("Login")]
-        public ActionResult Login([FromBody] LoginRequest request)
+        public ActionResult Login([FromBody] Login_Request request)
         {
 
             string euid = request.euid;
