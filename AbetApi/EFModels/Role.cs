@@ -25,13 +25,9 @@ namespace AbetApi.EFModels
             this.Name = Name;
         }
 
-        public class CreateRole_Request
-        {
-            public Role role { get; set; }
-        }
         // This function creates a role with the given name
         // Naming convention is the role name starting with uppercase
-        public static async Task CreateRole([FromBody] CreateRole_Request request)
+        public static async Task CreateRole([FromBody] AxiosRequest.CreateRole request)
         {
             //Role role = new Role();
             Role role = request.role; //?
@@ -62,13 +58,8 @@ namespace AbetApi.EFModels
             }
         } // CreateRole
 
-        public class AddRoleToUser_Request
-        {
-            public string EUID { get; set; }
-            public string roleName { get; set; }
-        }
         // This function gives a selected user a provided role.
-        public async static Task AddRoleToUser([FromBody] AddRoleToUser_Request request)
+        public async static Task AddRoleToUser([FromBody] AxiosRequest.AddRoleToUser request)
         {
             string EUID = request.EUID;
             string roleName = request.roleName;
@@ -185,12 +176,8 @@ namespace AbetApi.EFModels
             }
         }
 
-        public class GetUsersByRole_Request
-        {
-            public string roleName { get; set; }
-        }
         // Gets a list of users with the selected role
-        public static async Task<List<User>> GetUsersByRole([FromBody] GetUsersByRole_Request request)
+        public static async Task<List<User>> GetUsersByRole([FromBody] AxiosRequest.GetUsersByRole request)
         {
             string roleName = request.roleName;
 
@@ -223,12 +210,8 @@ namespace AbetApi.EFModels
         } // GetUsersByRole
 
 
-        public class DeleteRole_Request
-        {
-            public string roleName { get; set; }
-        }
         // This function deletes a selected role
-        public static async Task DeleteRole([FromBody] DeleteRole_Request request)
+        public static async Task DeleteRole([FromBody] AxiosRequest.DeleteRole request)
         {
             string roleName = request.roleName;
 
@@ -259,13 +242,8 @@ namespace AbetApi.EFModels
         } // DeleteRole
 
 
-        public class RemoveRoleFromUser_Request
-        {
-            public string EUID { get; set; }
-            public string roleName { get; set; }
-        }
         // This function removes a role from a user, selected via EUID
-        public async static Task RemoveRoleFromUser([FromBody] RemoveRoleFromUser_Request request)
+        public async static Task RemoveRoleFromUser([FromBody] AxiosRequest.RemoveRoleFromUser request)
         {
             string EUID = request.EUID;
             string roleName = request.roleName;

@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using AbetApi.Authentication;
 using System.Text;
 using Microsoft.AspNetCore.Http;
+using AbetApi.EFModels;
 
 namespace AbetApi.Controllers
 {
@@ -22,15 +23,9 @@ namespace AbetApi.Controllers
             this.tokenGenerator = tokenGenerator;
         }
 
-        public class Login_Request
-        {
-            public string euid { get; set; }
-            public string password { get; set; }
-        }
-
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
         [HttpPost("Login")]
-        public ActionResult Login([FromBody] Login_Request request)
+        public ActionResult Login([FromBody] AxiosRequest.Login request)
         {
 
             string euid = request.euid;
