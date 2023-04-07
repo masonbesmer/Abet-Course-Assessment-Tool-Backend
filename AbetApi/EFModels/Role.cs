@@ -126,7 +126,64 @@ namespace AbetApi.EFModels
                 context.SaveChanges();
             }
         } // AddRoleToUser
+        public async static Task AddRoleToUser(string euid, string addRole)
+        {
+            string EUID = euid;
+            string roleName = addRole;
 
+            //Check that the EUID of the user is not null or empty.
+            if (EUID == null || EUID == "")
+            {
+                throw new ArgumentException("The EUID cannot be empty.");
+            }
+
+            //Check that the role name is not null or empty.
+            if (roleName == null || roleName == "")
+            {
+                throw new ArgumentException("The role name cannot be empty.");
+            }
+
+            //Format role name and EUID to follow a standard.
+            roleName = roleName[0].ToString().ToUpper() + roleName[1..].ToLower();
+            EUID = EUID.ToLower();
+
+            await using (var context = new ABETDBContext())
+            {
+                //This finds a role with the given role name.
+                Role role = context.Roles.FirstOrDefault(r => r.Name == roleName);
+
+                //If the specified role does not exist then throw an exception.
+                if (role == null)
+                {
+                    throw new ArgumentException("The role specified does not exist in the database.");
+                }
+
+                //Find the User if it exists.
+                User user = context.Users.FirstOrDefault(p => p.EUID == EUID);
+
+                //If the specified user does not exist then throw an exception.
+                if (user == null)
+                {
+                    throw new ArgumentException("The user specified does not exist in the database.");
+                }
+
+                //Load the roles for the specified user.
+                context.Entry(user).Collection(user => user.Roles).Load();
+
+                //Check that the user does not already have the role specified and if they do, then throw an exception.
+                foreach (Role duplicateRole in user.Roles)
+                {
+                    if (duplicateRole.Name == role.Name)
+                    {
+                        throw new ArgumentException("The user specified already has the role specified.");
+                    }
+                }
+
+                // The role is added to the user, and the changes are saved.
+                role.Users.Add(user);
+                context.SaveChanges();
+            }
+        }
 
         public class GetUsersByRole_Request
         {
