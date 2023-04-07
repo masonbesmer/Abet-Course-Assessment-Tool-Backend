@@ -54,10 +54,10 @@ namespace AbetApi.Controllers
         // string courseNumber:  Course identifier, such as 3600 for Systems Programming
         // string sectionNumber: Course section, such as 001 or 002
         // description:          This function gets a JSON object that contains sectonID int,
-        //                       instructorEUD string, isSectioncompleted boolean, 
+        //                       instructorEUID string, isSectioncompleted boolean, 
         //                       sectionNumber string,numberOfStudents int
         ////////////////////////////////////////////////////////////////////////////////////
-        [Authorize(Roles = RoleTypes.Admin)]
+        [Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
         [HttpGet("GetSection")]
         public async Task<IActionResult> GetSection(string term, int year, string department, string courseNumber, string sectionNumber)
         {
