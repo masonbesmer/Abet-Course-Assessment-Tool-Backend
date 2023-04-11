@@ -174,7 +174,7 @@ namespace AbetApi.EFModels
                 role.Users.Add(user);
                 context.SaveChanges();
             }
-        }
+        } // AddRoleToUser
 
         // Gets a list of users with the selected role
         public static async Task<List<User>> GetUsersByRole([FromBody] AxiosRequest.GetUsersByRole request)

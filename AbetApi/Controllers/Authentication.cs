@@ -24,7 +24,7 @@ namespace AbetApi.Controllers
         }
 
         // This function is used to return a token that contains all of the roles a user has after successfully logging in
-        [HttpPost("Login")]
+        [HttpPost("Login")] // Frontend caller: API.login()
         public ActionResult Login([FromBody] AxiosRequest.Login request)
         {
 

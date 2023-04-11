@@ -31,5 +31,10 @@
             public string EUID { get; set; }
             public string roleName { get; set; }
         }
+        public class EditUser
+        {
+            string EUID { get; set; }
+            User NewUserInfo { get; set; }
+        }
     }
 }
