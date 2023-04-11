@@ -17,6 +17,8 @@ namespace AbetApi.Controllers
     {
         private readonly ILdap ldap;
         private readonly ITokenGenerator tokenGenerator;
+        
+        // Constructor for Authentication tokens
         public Authentication(ILdap ldap, ITokenGenerator tokenGenerator)
         {
             this.ldap = ldap;
@@ -89,19 +91,19 @@ namespace AbetApi.Controllers
 
                     string token = tokenGenerator.GenerateToken(euid, rolesToAdd);
 
-                    return Ok(new { token }); //user is logged in
+                    return Ok(new { token }); // User is logged in
                 }
-                catch (Exception ex)
+                catch (Exception ex) // Login did not work, returns error
                 {
                     return BadRequest(ex.Message);
                 }
             }
             //If their credentials are incorrect, send an error
-            else if (!ldap.LoginSuccessful && !ldap.InternalErrorOccurred) // login was unsuccessful and the server did NOT encounter an error
+            else if (!ldap.LoginSuccessful && !ldap.InternalErrorOccurred) // Login was unsuccessful and the server did NOT encounter an error
                 return BadRequest(new { message = ldap.ErrorMessage });
-            //If this endpoint breaks for any other reason
+            //If this endpoint breaks for any other reason, send an error
             else
-                return StatusCode(500, new { message = ldap.ErrorMessage }); //internal server error (500 error)
+                return StatusCode(500, new { message = ldap.ErrorMessage }); // Internal server error (500 error)
         }
     }
 }
