@@ -33,8 +33,8 @@
         }
         public class EditUser
         {
-            string EUID { get; set; }
-            User NewUserInfo { get; set; }
+            public string EUID { get; set; }
+            public User NewUserInfo { get; set; }
         }
     }
 }
