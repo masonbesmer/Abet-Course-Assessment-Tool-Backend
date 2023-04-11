@@ -36,5 +36,9 @@
             public string EUID { get; set; }
             public User NewUserInfo { get; set; }
         }
+        public class DeleteUser
+        {
+            public string euid { get; set; }
+        }
     }
 }
