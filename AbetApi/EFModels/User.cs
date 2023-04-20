@@ -171,10 +171,8 @@ namespace AbetApi.EFModels
          * \param EUID The users EUID
          * \param NewUserInfo A User object with the edit info
          */
-        public async static Task EditUser([FromBody] AxiosRequest.EditUser request)
+        public async static Task EditUser(string EUID, User NewUserInfo)
         {
-            string EUID = request.EUID;
-            User NewUserInfo = request.NewUserInfo;
             //Sets the user ID to 0, to allow the database to auto increment the UserId value
             NewUserInfo.UserId = 0;
 

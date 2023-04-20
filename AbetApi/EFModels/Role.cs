@@ -58,6 +58,37 @@ namespace AbetApi.EFModels
             }
         } // CreateRole
 
+        // for internal calls
+        public static async Task CreateRole(Role role)
+        {
+            
+
+            //Check that the role name is not null or empty.
+            if (role.Name == null || role.Name == "")
+            {
+                throw new ArgumentException("The role name cannot be empty.");
+            }
+
+            //Format role name to follow a standard
+            role.Name = role.Name[0].ToString().ToUpper() + role.Name[1..].ToLower();
+
+            // Adds role to the DB.
+            await using (var context = new ABETDBContext())
+            {
+                //Try to find the role in the database.
+                Role duplicateRole = context.Roles.FirstOrDefault(p => p.Name == role.Name);
+
+                //Check that the new role to be created is not a duplicate. Throw an exception if it does.
+                if (duplicateRole != null)
+                {
+                    throw new ArgumentException("That role already exists in the database.");
+                }
+
+                context.Roles.Add(role);
+                context.SaveChanges();
+            }
+        } // CreateRole
+
         // This function gives a selected user a provided role.
         public async static Task AddRoleToUser([FromBody] AxiosRequest.AddRoleToUser request)
         {
@@ -208,7 +239,35 @@ namespace AbetApi.EFModels
                 return role.Users.ToList();
             }
         } // GetUsersByRole
+        public static async Task<List<User>> GetUsersByRole(string roleName)
+        {
+            //Check that the role name is not null or empty.
+            if (roleName == null || roleName == "")
+            {
+                throw new ArgumentException("The role name cannot be empty.");
+            }
 
+            //Format role name and EUID to follow a standard.
+            roleName = roleName[0].ToString().ToUpper() + roleName[1..].ToLower();
+
+            await using (var context = new ABETDBContext())
+            {
+                //This finds a role with the given role name.
+                Role role = context.Roles.FirstOrDefault(r => r.Name == roleName);
+
+                //If the specified role does not exist then throw an exception.
+                if (role == null)
+                {
+                    throw new ArgumentException("The role specified does not exist in the database.");
+                }
+
+                //This uses explicit loading to tell the database we want Users loaded.
+                context.Entry(role).Collection(role => role.Users).Load();
+
+                // Converts the users of that role in to a list and returns the list.
+                return role.Users.ToList();
+            }
+        } // GetUsersByRole
 
         // This function deletes a selected role
         public static async Task DeleteRole([FromBody] AxiosRequest.DeleteRole request)
@@ -241,6 +300,35 @@ namespace AbetApi.EFModels
             }
         } // DeleteRole
 
+        //internal call
+        public static async Task DeleteRole(string roleName)
+        {
+
+            //Check that the role name is not null or empty.
+            if (roleName == null || roleName == "")
+            {
+                throw new ArgumentException("The role name cannot be empty.");
+            }
+
+            //Format role name and EUID to follow a standard.
+            roleName = roleName[0].ToString().ToUpper() + roleName[1..].ToLower();
+
+            await using (var context = new ABETDBContext())
+            {
+                //This finds a role with the given role name.
+                Role role = context.Roles.FirstOrDefault(r => r.Name == roleName);
+
+                //If the specified role does not exist then throw an exception.
+                if (role == null)
+                {
+                    throw new ArgumentException("The role specified does not exist in the database.");
+                }
+
+                //Delete the role, and save changes
+                context.Remove(role);
+                context.SaveChanges();
+            }
+        } // DeleteRole
 
         // This function removes a role from a user, selected via EUID
         public async static Task RemoveRoleFromUser([FromBody] AxiosRequest.RemoveRoleFromUser request)
