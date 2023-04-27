@@ -86,7 +86,7 @@ namespace AbetApi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        } // DeleteRole
+        }// DeleteRole
 
         // This function adds the provided role to the given user (via EUID)
         [Authorize(Roles = RoleTypes.Admin)]
@@ -107,11 +107,11 @@ namespace AbetApi.Controllers
         // This function removes the selected role from the selected user (via EUID)
         [Authorize(Roles = RoleTypes.Admin)]
         [HttpDelete("RemoveRoleFromUser")]
-        public async Task<IActionResult> RemoveRoleFromUser(string EUID, string roleName)
+        public async Task<IActionResult> RemoveRoleFromUser([FromBody]AxiosRequest.RemoveRoleFromUser request)
         {
             try
             {
-                await Role.RemoveRoleFromUser(EUID, roleName);
+                await Role.RemoveRoleFromUser(request);
                 return Ok();
             }
             catch (Exception ex)

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AbetApi.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 
 //! The EFModels namespace
 /*! 
@@ -154,9 +155,7 @@ namespace AbetApi.EFModels
 
                 //If the specified user does not exist, then throw an exception.
                 if (user == null)
-                {
                     throw new ArgumentException("The user specified does not exist in the database.");
-                }
 
                 return user;
             }
@@ -179,27 +178,19 @@ namespace AbetApi.EFModels
 
             //Check that the EUID of the existing user information is not null or empty.
             if (EUID == null || EUID == "")
-            {
                 throw new ArgumentException("The EUID for the user to edit cannot be empty.");
-            }
 
             //Check that the first name of the new user information is not null or empty.
             if (NewUserInfo.FirstName == null || NewUserInfo.FirstName == "")
-            {
                 throw new ArgumentException("The new first name cannot be empty.");
-            }
 
             //Check that the last name of the new user information is not null or empty.
             if (NewUserInfo.LastName == null || NewUserInfo.LastName == "")
-            {
                 throw new ArgumentException("The new last name cannot be empty.");
-            }
 
             //Check that the EUID of the new user information is not null or empty.
             if (NewUserInfo.EUID == null || NewUserInfo.EUID == "")
-            {
                 throw new ArgumentException("The new EUID cannot be empty.");
-            }
 
             //Format first name, last name, and EUID of the new user information to follow a standard.
             NewUserInfo.FirstName = NewUserInfo.FirstName[0].ToString().ToUpper() + NewUserInfo.FirstName[1..].ToLower();
@@ -213,9 +204,7 @@ namespace AbetApi.EFModels
 
                 //Check to make sure the specified user to work on was a valid user from the database and throw an exception if it was not.
                 if(user == null)
-                {
                     throw new ArgumentException("The user you wanted to edit does not exist in the database.");
-                }
 
                 //If we are trying to change the EUID, then make sure that we aren't trying to duplicate an EUID.
                 if (EUID != NewUserInfo.EUID)
@@ -225,9 +214,7 @@ namespace AbetApi.EFModels
 
                     //If the new user already exists in the database, then that is a duplicate and we do not allow duplicates.
                     if (duplicateUser != null)
-                    {
                         throw new ArgumentException("The EUID to change to already exists in the database.");
-                    }
                 }
 
                 //Copy new values of user over to the user that's being edited
@@ -246,16 +233,15 @@ namespace AbetApi.EFModels
          * It then checks if the user exists, and if so, deletes them and saves the changes.
          * \param EUID A string with the users EUID
          */
-        public async static Task DeleteUser(string EUID)
+        public async static Task DeleteUser([FromBody] AxiosRequest.DeleteUser request)
         {
+
             //Check that the EUID of the user to delete is not null or empty.
-            if (EUID == null || EUID == "")
-            {
+            if (request.euid == null || request.euid == "")
                 throw new ArgumentException("The EUID cannot be empty.");
-            }
 
             //Format EUID to follow a standard.
-            EUID = EUID.ToLower();
+            string EUID = request.euid.ToLower();
 
             await using (var context = new ABETDBContext())
             {
@@ -267,6 +253,29 @@ namespace AbetApi.EFModels
                 {
                     throw new ArgumentException("The user you wanted to delete does not exist in the database.");
                 }
+
+                //Delete the result, and save changes
+                context.Remove(user);
+                context.SaveChanges();
+            }
+        } // DeleteUser
+        public async static Task DeleteUser(string EUID)
+        {
+            //Check that the EUID of the user to delete is not null or empty.
+            if (EUID == null || EUID == "")
+                throw new ArgumentException("The EUID cannot be empty.");
+
+            //Format EUID to follow a standard.
+            EUID = EUID.ToLower();
+
+            await using (var context = new ABETDBContext())
+            {
+                //find the user with a matching EUID
+                User user = context.Users.FirstOrDefault(p => p.EUID == EUID);
+
+                //Check to make sure the specified user to work on was a valid user from the database and throw an exception if it was not.
+                if (user == null)
+                    throw new ArgumentException("The user you wanted to delete does not exist in the database.");
 
                 //Delete the result, and save changes
                 context.Remove(user);
@@ -286,9 +295,7 @@ namespace AbetApi.EFModels
         {
             //Check that the EUID of the user to find is not null or empty.
             if (EUID == null || EUID == "")
-            {
                 throw new ArgumentException("The EUID cannot be empty.");
-            }
 
             //Format EUID to follow a standard.
             EUID = EUID.ToLower();
@@ -300,9 +307,7 @@ namespace AbetApi.EFModels
 
                 //Throw an exception if the user specified does not exist.
                 if (user == null)
-                {
                     return null;
-                }
 
                 //This uses explicit loading to tell the database we want Roles loaded
                 context.Entry(user).Collection(user => user.Roles).Load();

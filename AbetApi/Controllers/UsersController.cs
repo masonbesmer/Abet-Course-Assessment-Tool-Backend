@@ -66,8 +66,8 @@ namespace AbetApi.Controllers
             }
         } // AddUser
 
-        [Authorize(Roles = RoleTypes.Admin)]
-        [HttpDelete("DeleteUser")]
+        [Authorize(Roles = RoleTypes.Admin)] // Require Admin role for this action
+        [HttpDelete("DeleteUser")] // Frontend caller: API.deleteFacultyUser()
         //! The DeleteUser function
         /*! 
          * This function deletes a user's profile from the databse. Utilizes EFModels.User in EFModels.
@@ -88,8 +88,8 @@ namespace AbetApi.Controllers
             }
         } // DeleteUser
 
-        [Authorize(Roles = RoleTypes.Admin)]
-        [HttpPatch("EditUser")]
+        [Authorize(Roles = RoleTypes.Admin)] // Require Admin role for this action
+        [HttpPatch("EditUser")] // Frontend caller: API.editFacultyUser()
         //! The EditUser function
         /*! 
          * This function updates a user with the provided information. Utilizes EFModels.User in EFModels.
@@ -111,8 +111,8 @@ namespace AbetApi.Controllers
             }
         } // EditUser
 
-        [Authorize(Roles = RoleTypes.Admin)]
-        [HttpPost("AddUserWithRoles")]
+        [Authorize(Roles = RoleTypes.Admin)] // Require Admin role for this action
+        [HttpPost("AddUserWithRoles")] // Frontend caller: API.addFacultyMember()
         //! AddUserWithRoles function
         /*! 
          * This function creates a user with the provided information (Has roles associated already). Utilizes Models.UserWithRoles in Models.
