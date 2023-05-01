@@ -9,7 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_WebToolingArtifacts Remove="properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="properties\launchSettings.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Properties\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
 
