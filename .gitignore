@@ -383,3 +383,4 @@ AbetApi/obj/
 AbetApi/bin/
 /AbetApi/Security/pbkdf2Config.json
 /AbetApi/Security/aesConfig.json
+/AbetApi/AbetApi.csproj.user
