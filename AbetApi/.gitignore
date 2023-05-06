@@ -6,3 +6,6 @@ appsettings.json
 launchSettings.json
 
 AbetApi/obj/Debug/
+
+# user files
+*.user
