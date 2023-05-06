@@ -5,14 +5,15 @@ namespace AbetApi.Authentication
 {
     public class Ldap : ILdap
     {
-        private readonly string connectionUrl = "ldaps://ldap-auth.untsystem.edu:636";
+        private readonly string connectionHost = "ldap-id.untsystem.edu";
+        private readonly int connectionPort = 636;
         public bool LoginSuccessful { get; set; } = false;
         public bool InternalErrorOccurred { get; set; } = false;
         public string ErrorMessage { get; set; }
 
         public void ValidateCredentials(string userId, string password)
         {
-            using (LdapConnection ldapConn = new LdapConnection(connectionUrl))
+            using (LdapConnection ldapConn = new LdapConnection("ldaps://" + connectionHost + ':' + connectionPort.ToString()))
             {
 
                 LdapSessionOptions options = ldapConn.SessionOptions;
@@ -21,7 +22,7 @@ namespace AbetApi.Authentication
                 ldapConn.Credential = new NetworkCredential($"uid={userId}, ou=people, o=unt", password);
                 options.ProtocolVersion = 3;
                 options.AutoReconnect = true;
-                options.HostName = "ldap-auth.untsystem.edu";
+                options.HostName = connectionHost;
                 options.VerifyServerCertificate += (conn, cert) => { return true; };
 
                 //Start TLS
