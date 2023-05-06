@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>b20aff14-64d0-4775-8103-826e11a8e314</UserSecretsId>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/huynggg/Abet-Course-Assessment-Tool-Backend</RepositoryUrl>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <UserSecretsId>b20aff14-64d0-4775-8103-826e11a8e314</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
