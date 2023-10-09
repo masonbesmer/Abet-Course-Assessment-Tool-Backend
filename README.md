@@ -8,6 +8,7 @@ This is a [.NET](https://dotnet.microsoft.com/en-US/) project written using C#. 
 
 Download and unzip the project. Open the the AbetApi folder and click on the solution file (AbetApi.sln) to open in Microsoft Visual Studio 2019 or 2022.
 You may need to set up your local environment variables before running. These are located in the `launchSettings.json` which would be located in the _Properties_ folder under _AbetApi_.
+Secret configuration files are required not provided in this repository. You will need to manually set up the `appsettings.json` and `launchSettings.json` files that were provided to you.
 To start the backend web server, in the ribbon, click the green arrow next to "IIS Express" to run. This will start the local IIS web server and the browser will open to a Swagger page with debug commands.
 
 Now that the back-end web server is running, start the [front end](https://github.com/huynggg/Abet-Course-Assessment-Tool-Frontend). This should automatically launch [localhost:3000](http://localhost:3000).
