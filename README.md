@@ -14,5 +14,6 @@ To start the backend web server, in the ribbon, click the green arrow next to "I
 Now that the back-end web server is running, start the [front end](https://github.com/huynggg/Abet-Course-Assessment-Tool-Frontend). This should automatically launch [localhost:3000](http://localhost:3000).
 
 This project uses [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) and MySQL Server for the database to connect to the backend. Download MySQL Installer Community to install and configure both MySQL applications at the same location. Make sure the root password set in the MySQL Server configuration is the same as the password in the file `appsettings.json`. That file is located in the AbetApi project within the AbetApi solution in Visual Studio.
+**IMPORTANT**: To generate sample database information, scroll down within the Swagger panel and run the "Custom" endpoint, or navigate to the `/Custom` directory of the backend (i.e. `https://localhost:44372/Custom`)
 
 In order to successfully login using your UNT credentials, you must be connected to a UNT network or the [UNT VPN](https://itss.untsystem.edu/sites/default/files/campus_vpn.pdf).
