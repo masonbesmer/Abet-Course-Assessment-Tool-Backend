@@ -546,6 +546,536 @@ namespace AbetApi.Data
 
             /* ====== END ====== INFINITE LOOP & TEAM 27 ====== END ====== */
 
+            /* ====== BEGIN ====== STORM SYSTEM & AGILE MINDS ====== BEGIN ====== */
+
+            // WipeTables();
+
+            // Try to complete an old course
+            // _ = Course.AddCourse("Fall", 2022, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
+            // Grade(string Major, int A, int B, int C, int D, int F, int W, int I, int TotalStudents)
+            // _ = Grade.SetGrades("Fall", 2022, "CSCE", "1030", "001", new List<Grade>(60));
+
+            // create a new semester
+            _ = Semester.AddSemester(new Semester("Fall", 2023));
+			
+			// add majors to semester
+            _ = Major.AddMajor("Fall", 2023, "CE");
+            _ = Major.AddMajor("Fall", 2023, "CS");
+            _ = Major.AddMajor("Fall", 2023, "IT");
+			
+			// add courses to semester
+			// _ = Course.AddCourse("Fall", 2023, new Course("coordinatorEUID", "CourseNumber", "DisplayName", "Coordinator Comment", isCourseCompleted, "Department"));
+            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1010", "Discovering Computer Science", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1030", "Computer Science I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1035", "Computer Programming I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1040", "Computer Science II", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1045", "Computer Programming II", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "2100", "Foundations of Computing", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "2110", "Foundations of Data Structures", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "2610", "Assembly Language and Computer Organization", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3010", "Signals and Systems", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3055", "IT Project Management", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3110", "Data Structures and Algorithms", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3201", "Applied Artificial Intelligence", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3220", "Human Computer Interfaces", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3420", "Internet Programming", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3444", "Software Engineering", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3530", "Introduction to Computer Networks", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3550", "Foundations of Cybersecurity", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3600", "Principles of Systems Programming", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3605", "Systems Administration", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3615", "Enterprise Systems Architecture and Design", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "3730", "Reconfigurable Logic", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4010", "Social Issues in Computing", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4110", "Algorithms", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4115", "Formal Languages, Automata, and Computability", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4205", "Introduction to Machine Learning", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4210", "Game Programming I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4255", "CProgramming Math and Physics for Games", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4290", "Introduction to Natural Language Processing", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4350", "Fundamentals of Database Systems", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4355", "Database Administration", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4430", "Programming Languages", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4520", "Wireless Networks and Protocols", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4535", "Introduction to Network Administration", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4555", "Computer Forensics", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4560", "Secure Electronic Commerce", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4565", "Secure Software development", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4575", "Blockchain and Applications", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4600", "Introduction to Operating Systems", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4620", "Real-Time Operating Systems", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4810", "Bioinformatics Algorithms", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4901", "Software Development Capstone I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4902", "Software Development Capstone II", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4905", "Information Technology Capstone I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4907", "Cybersecurity Capstone I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4910", "Computer Engineering Design I", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4920", "Cooperative Education in Computer Science and Engineering", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4925", "Information Technology Capstone II", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4930", "Topcis in Computer Science and Engineering", "", false, "CSCE"));
+
+
+            // add sections to courses
+            // _ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("InstructorEUID", IsSectionCompleted, "SectionNumber", NumberOfStudents));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1010", new Section("dmk0080", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1010", new Section("dmk0080", false, "306", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1010", new Section("dmk0080", false, "307", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "004", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("dr0702", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "340", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "342", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "341", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "343", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "336", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "339", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "332", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "335", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "334", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "338", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "333", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("amm0813", false, "337", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "344", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "347", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "348", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("pls0112", false, "345", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("dr0702", false, "551", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("dr0702", false, "550", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1035", new Section("hg0002", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1035", new Section("hg0002", false, "306", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1035", new Section("hg0002", false, "307", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "315", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "316", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "309", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "311", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "310", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "314", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "313", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1040", new Section("dmk0080", false, "312", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1045", new Section("hg0002", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "1045", new Section("hg0002", false, "306", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "218", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("dr0702", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "218", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "214", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "215", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "222", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "223", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("dr0702", false, "552", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "219", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "216", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "217", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2100", new Section("yl0340", false, "224", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "212", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "210", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "214", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "216", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "215", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "211", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "213", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("csc0168", false, "217", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("fi0003", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2110", new Section("fi0003", false, "551", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2610", new Section("rjp0004", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2610", new Section("rjp0004", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2610", new Section("rjp0004", false, "206", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2610", new Section("rjp0004", false, "208", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "2610", new Section("rjp0004", false, "210", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3010", new Section("ra0005", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3055", new Section("rmg0006", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3110", new Section("svp0007", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3110", new Section("xg0008", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3201", new Section("me0009", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3220", new Section("bm0756", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3420", new Section("gtj0010", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3420", new Section("rmg0006", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3444", new Section("hg0002", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3444", new Section("hg0002", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3530", new Section("ehf0011", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3530", new Section("rmg0006", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("mdh0012", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("mdh0012", false, "551", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("jh0013", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("jh0013", false, "203", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("jh0013", false, "201", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("jh0013", false, "204", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3550", new Section("jh0013", false, "206", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "004", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("csc0168", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "213", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "215", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "214", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "208", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "210", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("svp0007", false, "209", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("csc0168", false, "212", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3600", new Section("csc0168", false, "211", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3605", new Section("mdh0012", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3615", new Section("csc0168", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3730", new Section("rjp0004", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3730", new Section("rjp0004", false, "201", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "3730", new Section("rjp0004", false, "202", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4010", new Section("me0009", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4010", new Section("me0009", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4010", new Section("dr0702", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4110", new Section("bm0014", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4110", new Section("bm0014", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4110", new Section("fi0003", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4115", new Section("bm0014", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4205", new Section("zt0015", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4210", new Section("jd0016", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4210", new Section("jd0016", false, "201", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4210", new Section("jd0016", false, "202", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4210", new Section("jd0016", false, "204", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4255", new Section("jd0016", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4290", new Section("fh0017", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4350", new Section("fi0003", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4350", new Section("jh0013", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4355", new Section("sws0018", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4430", new Section("bm0756", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4520", new Section("qy0019", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4535", new Section("ehf0011", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4555", new Section("ehf0011", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4560", new Section("az0020", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4565", new Section("lb0021", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4565", new Section("lb0021", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4575", new Section("bm0756", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4600", new Section("jd0016", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4600", new Section("jh0013", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4620", new Section("bj0141", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4810", new Section("sb0022", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4810", new Section("sb0022", false, "401", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4901", new Section("wma0023", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4901", new Section("sal0024", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4902", new Section("dr0702", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4902", new Section("wma0023", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4905", new Section("dmk0080", false, "001", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4907", new Section("pls0112", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4910", new Section("rjp0004", false, "002", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4910", new Section("pls0112", false, "003", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4920", new Section("dmk0080", false, "752", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4920", new Section("dmk0080", false, "721", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4925", new Section("dr0702", false, "501", 60));
+			_ = Section.AddSection("Fall", 2023, "CSCE", "4930", new Section("sal0024", false, "001", 60));
+			
+			
+			// add major outcomes ** STUDENT OUTCOMES ** 
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("1", "An ability to identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("2", "An ability to apply engineering design to produce solutions that meet specified needs with consideration of public health, safety,and welfare, as well as global, cultural, social, environmental, and economic factors."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("3", "An ability to communicate effectively with a range of audiences."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("4", "An ability to recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("5", "An ability to function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("6", "An ability to develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CE", new MajorOutcome("7", "An ability to acquire and apply new knowledge as needed, using appropriate learning strategies."));
+
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CS", new MajorOutcome("1", "An ability to analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CS", new MajorOutcome("2", "An ability to design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CS", new MajorOutcome("3", "An ability to communicate effectively in a variety of professional contexts."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CS", new MajorOutcome("4", "An ability to recognize professional responsibilities and make informed judgements in computing practice based on legal and ethical principles."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CS", new MajorOutcome("5", "An ability to function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "CS", new MajorOutcome("6", "An ability to apply computer science theory and software development fundamentals to produce computing-based solutions."));
+
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("1", "An ability to analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("2", "An ability to design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("3", "An ability to communicate effectively in a variety of professional contexts."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("4", "An ability to recognize professional responsibilities and make informed judgements in computing practice based on legal and ethical principles."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("5", "An ability to function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline."));
+            _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("6", "An ability to identify and analyze user needs and to take them into account in the selection, creation, integration, evaluation, and administration of computing-based systems."));
+			
+			// add course outcome to course
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("1", "Describe how a computer’s CPU, Main Memory, Secondary Storage and I/O work together to execute a computer program."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("2", "Make use of a computer system’s hardware, editor(s), operating system, system software and network to build computer software and submit that software for grading."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("3", "Describe algorithms to perform “simple” tasks such as numeric computation, searching and sorting, choosing among several options, string manipulation, and use of pseudo-random numbers in simulation of such tasks as rolling dice."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("4", "Write readable, efficient and correct C/C++ programs that include programming structures such as assignment statements, selection statements, loops, arrays, pointers, console and file I/O, structures, command line arguments, both standard library and user-defined functions, and multiple header (.h) and code (.c or .cpp) files."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("5", "Use commonly accepted practices and tools to find and fix runtime and logical errors in software."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("6", "Describe a software process model that can be used to develop significant applications composed of hundreds of functions."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("7", "Perform the steps necessary to edit, compile, link and execute C/C++ programs."));
+			
+			// link major outcomes to course outcomes **STUDENT OUTCOME TO COURSE OUTCOME**
+            // 1030 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "1", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "5", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CE", "4");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "CE", "7");
+            // 1035 CE (same as 1030)
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "1", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "5", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "CE", "4");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "CE", "7");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "CE", "7");
+            // 1040 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "1", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "2", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "5", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "7", "CE", "2");
+            // 1045 CE (same as 1040)
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "1", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "2", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "3", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "4", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "5", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "6", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "7", "CE", "2");
+            // 2100 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "1", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "2", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "5", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "CE", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "5", "CE", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "4", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "5", "CE", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "7", "CE", "7");
+            // 2110 CE
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "5", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "6", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "7", "CE", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "1", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "2", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "3", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "4", "CE", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "1", "CE", "5");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "2", "CE", "5");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "3", "CE", "5");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "4", "CE", "5");
+            // 1030 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "2", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "5", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "CS", "6");
+            // 1035 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "2", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "5", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "CS", "6");
+            // 1040 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "2", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "5", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "3", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "4", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "2", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "3", "CS", "6");
+            // 1045 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "2", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "5", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "1", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "3", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "4", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "7", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "2", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "3", "CS", "6");
+            // 2100 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "1", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "2", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "5", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "7", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "8", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "6", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "7", "CS", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "6", "CS", "6");
+            // 2110 CS
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "4", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "7", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "8", "CS", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "4", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "5", "CS", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "1", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "2", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "3", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "5", "CS", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "6", "CS", "6");
+
+            // 1030 IT
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "1", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "2", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "5", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "6", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "7", "IT", "6");
+            // 1035 IT
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "1", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "2", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "5", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "6", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "3", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "4", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1035", "7", "IT", "6");
+            // 1040 IT
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "1", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "2", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "3", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "4", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "5", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "6", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "7", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "2", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "6", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "7", "IT", "2"); 
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1040", "6", "IT", "6");
+            // 1045 IT
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "1", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "2", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "3", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "4", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "5", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "6", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "7", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "2", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "6", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "7", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1045", "6", "IT", "6");
+            // 2100 IT
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "1", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "2", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "4", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "5", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "7", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "8", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "6", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "7", "IT", "3");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "3", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2100", "6", "IT", "6");
+            // 2110 IT
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "4", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "7", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "8", "IT", "1");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "4", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "5", "IT", "2");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "1", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "2", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "3", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "5", "IT", "6");
+            _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "2110", "6", "IT", "6");
+			
+			//Adds Users (Commented users were already added in the Fall 2022 section)
+			// _ = User.AddUser(new User("David", "Keathly", "dmk0080"));
+			// _ = User.AddUser(new User("Pradhumna", "Shrestha", "pls0112"));
+			// _ = User.AddUser(new User("Amar", "Majarjan", "amm0813"));
+			// _ = User.AddUser(new User("Diana", "Rabah", "dr0702"));
+			_ = User.AddUser(new User("Hadiseh", "Gooranorimi", "hg0002"));
+			// _ = User.AddUser(new User("Yuan", "Li", "yl0340"));
+            // _ = User.AddUser(new User("Curtis", "Chambers", "csc0168"));
+			_ = User.AddUser(new User("Faridul", "Islam", "fi0003"));
+			_ = User.AddUser(new User("Robin", "Pottathuparambil", "rjp0004"));
+			_ = User.AddUser(new User("Robert", "Akl", "ra0005"));
+			_ = User.AddUser(new User("Ryan", "Garlick", "rmg0006"));
+			_ = User.AddUser(new User("Satya", "Parupudi", "svp0007"));
+			_ = User.AddUser(new User("Xuan", "Guo", "xg0008"));
+			_ = User.AddUser(new User("Moawia", "Eldow", "me0009"));
+			// _ = User.AddUser(new User("Beddhu", "Murali", "bm0756"));
+			_ = User.AddUser(new User("Gary", "James", "gtj0010"));
+			_ = User.AddUser(new User("Ervin", "Frenzel", "ehf0011"));
+			_ = User.AddUser(new User("Mark", "Hoffman", "mdh0012"));
+			_ = User.AddUser(new User("Jacob", "Hochstetler", "jh0013"));
+			_ = User.AddUser(new User("Bahareh", "Mokarramdorri", "bm0014"));
+			_ = User.AddUser(new User("Zeenat", "Tariq", "zt0015"));
+			_ = User.AddUser(new User("Jonathon", "Doran", "jd0016"));
+			_ = User.AddUser(new User("Frederik", "Hartmann", "fh0017"));
+			_ = User.AddUser(new User("Steven", "Smith", "sws0018"));
+			_ = User.AddUser(new User("Qing", "Yang", "qy0019"));
+			_ = User.AddUser(new User("Ali", "Zarafshani", "az0020"));
+			_ = User.AddUser(new User("Lotfi", "Benothmane", "lb0021"));
+			// _ = User.AddUser(new User("Beilei", "Jiang", "bj0141"));
+			_ = User.AddUser(new User("Serdar", "Bozdag", "sb0022"));
+			_ = User.AddUser(new User("Wajdi", "Aljedaani", "wma0023"));
+			_ = User.AddUser(new User("Stephanie", "Ludi", "sal0024"));
+
+            //_ = User.AddUser(new User("Co", "Ordinator", "coordinator"));
+            //_ = User.AddUser(new User("Ad", "Min", "admin"));
+
+            //Creates default roles (Already Created)
+            // _ = Role.CreateRole(new Role("Admin"));
+            // _ = Role.CreateRole(new Role("Coordinator"));
+            // _ = Role.CreateRole(new Role("Instructor"));
+            // _ = Role.CreateRole(new Role("Student"));
+
+            //Gives admin access to:
+
+            //Gives instructor access to:
+            // _ = Role.AddRoleToUser("coordinator", "Coordinator");
+            // _ = Role.AddRoleToUser("admin", "Admin");
+
+            // Testing
+            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1234", "Intoduction to Sleeping", "", false, "CSCE"));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("Instructor", false, "123", 60));
+
+            _ = User.AddUser(new User("Alcott", "Vincent", "vea0028"));
+            _ = User.AddUser(new User("In", "Structor", "Instructor"));
+            _ = Role.AddRoleToUser("Instructor", "Instructor");
+
         }
 
         // This function is here to run arbitrary code from the database class
