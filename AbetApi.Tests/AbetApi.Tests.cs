@@ -9,29 +9,45 @@ namespace AbetApi.Tests
     [TestClass]
     public class AbetApiTests
     {
-
+        // Initialize is called before EVERY test.
         [TestInitialize()]
         public void Initialize()
         {
             Console.WriteLine("Initializing test...");
             Semester semester = new Semester("Spring", 3030);
             _ = Semester.AddSemester(semester);
+            Semester semester2 = new Semester("Spring", 3031);
+            _ = Semester.AddSemester(semester2);
             AddMajorHelper("FTSY", "Spring", 3030);
             var user = new User("Gandalf", "Grey", "gtg001");
             AddUserHelper(user);
             var role = new Role("AdminTest");
             _ = Role.CreateRole(role);
 
+            Course course = new Course(
+                    "Elrond, Lord of Rivendell",
+                    "2021",
+                    "The Lord of the Rings",
+                    "A mighty Elf-ruler of old who lived in Middle-earth from the First Age to the beginning of the Fourth Age.",
+                    true,
+                    "FTSY"
+               );
+            _ = Course.AddCourse("Spring", 3031, course);
+
         }
 
+        // Cleanup is called after EVERY test.
+        // Make sure to delete Semesters last.
         [TestCleanup()]
         public void Cleanup()
         {
             Console.WriteLine("Cleaning up...");
-            _ = Semester.DeleteSemester("Spring", 3030);
+            _ = Course.DeleteCourse("Spring", 3031, "FTSY", "2021");
             _ = Major.DeleteMajor("Spring", 3030, "FTSY");
             _ = User.DeleteUser("gtg001");
             _ = Role.DeleteRole("AdminTest");
+            _ = Semester.DeleteSemester("Spring", 3030);
+            _ = Semester.DeleteSemester("Spring", 3031);
         }
 
         /*
@@ -142,7 +158,14 @@ namespace AbetApi.Tests
             }
             finally
             {
-                _ = Role.RemoveRoleFromUser("gtg001", "AdminTest");
+                //_ = Role.RemoveRoleFromUser("gtg001", "AdminTest");
+                //
+                AxiosRequest.RemoveRoleFromUser request = new();
+                request.EUID = "gtg001";
+                request.roleName = "AdminTest";
+                
+                _ = Role.RemoveRoleFromUser(request);
+                //
             }
         }
 
@@ -157,13 +180,27 @@ namespace AbetApi.Tests
                 {
                     Assert.AreEqual(1, result.Roles.Count); // Each user's .Count should be 1
                 }
-                _ = Role.RemoveRoleFromUser("gtg001", "AdminTest");
+                //_ = Role.RemoveRoleFromUser("gtg001", "AdminTest");
+                //
+                AxiosRequest.RemoveRoleFromUser request = new();
+                request.EUID = "gtg001";
+                request.roleName = "AdminTest";
+
+                _ = Role.RemoveRoleFromUser(request);
+                //
                 var results2 = Role.GetUsersByRole("AdminTest").Result.Count;
                 Assert.AreEqual(results2, 0);
             }
             finally
             {
-                _ = Role.RemoveRoleFromUser("gtg001", "AdminTest");
+                //_ = Role.RemoveRoleFromUser("gtg001", "AdminTest");
+                //
+                AxiosRequest.RemoveRoleFromUser request = new();
+                request.EUID = "gtg001";
+                request.roleName = "AdminTest";
+
+                _ = Role.RemoveRoleFromUser(request);
+                //
             }
         }
 
@@ -327,31 +364,38 @@ namespace AbetApi.Tests
         [TestMethod]
         public void TestAddCourse()
         {
-            Semester semester = new Semester("Spring", 3031);
-            _ = Semester.AddSemester(semester);
-            Course course = new Course(
-                "Elrond, Lord of Rivendell",
-                "2021",
-                "The Lord of the Rings",
-                "A mighty Elf-ruler of old who lived in Middle-earth from the First Age to the beginning of the Fourth Age.",
-                true,
-                "FTSY"
-           );
-            _ = Course.AddCourse("Spring", 3031, course);
-            var result = Course.GetCourse("Spring", 3031, course.Department, course.CourseNumber).Result;
-            Assert.AreEqual(result.CoordinatorEUID.ToLower(), course.CoordinatorEUID);
-            Assert.AreEqual(result.CourseNumber, course.CourseNumber);
-            Assert.AreEqual(result.DisplayName, course.DisplayName);
-            Assert.AreEqual(result.CoordinatorComment, course.CoordinatorComment);
-            Assert.AreEqual(result.IsCourseCompleted, course.IsCourseCompleted);
-            Assert.AreEqual(result.Department, course.Department);
+            try
+            {
+                //Semester semester = new Semester("Spring", 3031);
+                //_ = Semester.AddSemester(semester);
+                Course course = new Course(
+                    "Elrond, Lord of Rivendell",
+                    "1234",
+                    "The Lord of the Rings",
+                    "A mighty Elf-ruler of old who lived in Middle-earth from the First Age to the beginning of the Fourth Age.",
+                    true,
+                    "FTSY"
+               );
+                _ = Course.AddCourse("Spring", 3031, course);
+                var result = Course.GetCourse("Spring", 3031, course.Department, course.CourseNumber).Result;
+                Assert.AreEqual(result.CoordinatorEUID.ToLower(), course.CoordinatorEUID);
+                Assert.AreEqual(result.CourseNumber, course.CourseNumber);
+                Assert.AreEqual(result.DisplayName, course.DisplayName);
+                Assert.AreEqual(result.CoordinatorComment, course.CoordinatorComment);
+                Assert.AreEqual(result.IsCourseCompleted, course.IsCourseCompleted);
+                Assert.AreEqual(result.Department, course.Department);
+            }
+            finally
+            {
+                _ = Course.DeleteCourse("Spring", 3031, "FTSY", "1234");
+            }
         }
 
         [TestMethod]
         public void TestGetCourse()
         {
             var course = Course.GetCourse("Spring", 3031, "ThisCourseDefinitelyDoesNotExist", "3031");
-            Assert.AreEqual(course.Exception.Message, "One or more errors occurred. (The course specified does not exist in the database.)");
+            Assert.AreEqual("One or more errors occurred. (The course specified does not exist in the database.)", course.Exception.Message);
         }
 
         [TestMethod]
@@ -374,6 +418,8 @@ namespace AbetApi.Tests
             false,
             "FTSY"
             );
+
+            _ = Course.AddCourse("Spring", 3031, course);
 
             _ = Course.EditCourse("Spring", 3031, course.Department, course.CourseNumber, newCourse);
             var result = Course.GetCourse("Spring", 3031, "FTSY", "2022").Result;
@@ -414,9 +460,9 @@ namespace AbetApi.Tests
             Section section1 = new Section("gtg001", false, "000005", 10);
             Section section2 = new Section("gtg001", false, "000009", 10);
 
-            _ = Section.AddSection("Spring", 3031, "FTSY", "2022", section1);
-            _ = Section.EditSection("Spring", 3031, "FTSY", "2022", "000005", section2);
-            var result = Section.GetSection("Spring", 3031, "FTSY", "2022", section2.SectionNumber).Result;
+            _ = Section.AddSection("Spring", 3031, "FTSY", "2021", section1);
+            _ = Section.EditSection("Spring", 3031, "FTSY", "2021", "000005", section2);
+            var result = Section.GetSection("Spring", 3031, "FTSY", "2021", section2.SectionNumber).Result;
             Assert.AreEqual(result.InstructorEUID, section1.InstructorEUID);
             Assert.IsFalse(result.IsSectionCompleted);
             Assert.AreNotEqual(result.NumberOfStudents, 9);
