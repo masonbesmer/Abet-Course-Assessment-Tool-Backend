@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
@@ -512,7 +513,7 @@ namespace AbetApi.EFModels
             //if yes, build that model object
 
             //Check if the term is null or empty
-            if (term == null || term == "")
+            if (string.IsNullOrEmpty(term))
             {
                 throw new ArgumentException("The term cannot be empty.");
             }
@@ -524,7 +525,7 @@ namespace AbetApi.EFModels
             }
 
             //Check if the instructor EUID is null or empty.
-            if (instructorEUID == null || instructorEUID == "")
+            if (string.IsNullOrEmpty(instructorEUID))
             {
                 throw new ArgumentException("The instructor EUID cannot be empty.");
             }
