@@ -69,6 +69,10 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                if(ex.Message == "The course specified has no course outcomes.")
+                {
+                    return Ok(ex.Message);
+                }
                 return BadRequest(ex.Message);
             }
         }
