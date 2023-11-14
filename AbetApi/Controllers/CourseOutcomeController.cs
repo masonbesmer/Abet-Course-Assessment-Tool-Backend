@@ -71,7 +71,7 @@ namespace AbetApi.Controllers
             {
                 if(ex.Message == "The course specified has no course outcomes.")
                 {
-                    return Ok(ex.Message);
+                    return Ok(ex.Message); //pass as 200 OK to handle in frontend
                 }
                 return BadRequest(ex.Message);
             }
@@ -87,6 +87,10 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                if(ex.Message == "The major specified has no major outcomes linked to the course outcome specified." || ex.Message == "The course outcome specified has no linked major outcomes." || ex.Message == "The course specified has no course outcomes." || ex.Message == "The course outcome specified does not exist in the database.")
+                {
+                    return Ok(ex.Message); //pass as 200 OK to handle in frontend
+                }
                 return BadRequest(ex.Message);
             }
         }
