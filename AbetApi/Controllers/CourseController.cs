@@ -26,6 +26,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // AddCourse
@@ -40,6 +41,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // GetCourse
@@ -55,6 +57,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // EditCourse
@@ -70,6 +73,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // DeleteCourse
@@ -84,6 +88,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // GetSections
@@ -98,6 +103,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // getMajorsThatRequireCourse
@@ -112,6 +118,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // GetCoursesByDepartment
@@ -126,6 +133,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         }
@@ -140,6 +148,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         } // GetDepartments
@@ -154,6 +163,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         }//GetMajorOutcomesSatisfied
@@ -168,6 +178,7 @@ namespace AbetApi.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return BadRequest(ex.Message);
             }
         }
