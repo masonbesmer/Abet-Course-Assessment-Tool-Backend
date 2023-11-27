@@ -119,6 +119,10 @@ namespace AbetApi.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                if (ex.Message == "The specified semester has no courses.")
+                {
+                    return Ok(ex.Message);
+                }
                 return BadRequest(ex.Message);
             }
         } // GetCoursesByDepartment
