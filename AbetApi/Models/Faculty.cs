@@ -10,5 +10,6 @@ namespace AbetApi.Models
         public List<AbetApi.EFModels.User> Admins { get; set; }
         public List<AbetApi.EFModels.User> Instructors { get; set; }
         public List<AbetApi.EFModels.User> Coordinators { get; set; }
+        public List<AbetApi.EFModels.User> Assistants { get; set; }
     }
 }

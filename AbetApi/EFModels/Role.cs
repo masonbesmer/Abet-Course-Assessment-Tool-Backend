@@ -164,6 +164,10 @@ namespace AbetApi.EFModels
             {
                 throw new ArgumentException("The role name cannot be empty.");
             }
+            else if(roleName == "teaching assistant")
+            {
+                roleName = "assistant";
+            }
 
             //Format role name and EUID to follow a standard.
             roleName = roleName[0].ToString().ToUpper() + roleName[1..].ToLower();

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using AbetApi.EFModels;
 using AbetApi.Authentication;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 
 namespace AbetApi.Controllers
 {
@@ -58,6 +59,7 @@ namespace AbetApi.Controllers
         //                       sectionNumber string,numberOfStudents int
         ////////////////////////////////////////////////////////////////////////////////////
         [Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
+        [Authorize(Roles = RoleTypes.Assistant)]
         [HttpGet("GetSection")]
         public async Task<IActionResult> GetSection(string term, int year, string department, string courseNumber, string sectionNumber)
         {
@@ -123,6 +125,7 @@ namespace AbetApi.Controllers
         } // DeleteSection
 
         [Authorize(Roles = RoleTypes.Instructor)]
+        [Authorize(Roles = RoleTypes.Assistant)]
         [HttpGet("GetSectionsByInstructor")]
         public async Task<IActionResult> GetSectionsByInstructor(string term, int year, string instructorEUID)
         {

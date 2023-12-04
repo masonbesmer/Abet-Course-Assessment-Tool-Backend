@@ -1062,6 +1062,8 @@ namespace AbetApi.Data
             // _ = Role.CreateRole(new Role("Instructor"));
             // _ = Role.CreateRole(new Role("Student"));
 
+            _ = Role.CreateRole(new Role("Assistant"));
+
             //Gives admin access to:
 
             //Gives instructor access to:
@@ -1069,12 +1071,16 @@ namespace AbetApi.Data
             // _ = Role.AddRoleToUser("admin", "Admin");
 
             // Testing
-            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1234", "Intoduction to Sleeping", "", false, "CSCE"));
-            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("Instructor", false, "123", 60));
+            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1234", "Introduction to Sleeping", "", false, "CSCE"));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("instructor", false, "123", 60));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("vea0028", false, "321", 60));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("vea0028", false, "777", 60));
 
             _ = User.AddUser(new User("Alcott", "Vincent", "vea0028"));
-            _ = User.AddUser(new User("In", "Structor", "Instructor"));
-            _ = Role.AddRoleToUser("Instructor", "Instructor");
+            _ = User.AddUser(new User("In", "Structor", "instructor"));
+            _ = Role.AddRoleToUser("instructor", "Instructor");
+            _ = Role.AddRoleToUser("vea0028", "Assistant");
+
 
         }
 

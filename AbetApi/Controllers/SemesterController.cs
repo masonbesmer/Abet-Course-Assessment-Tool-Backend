@@ -25,7 +25,8 @@ namespace AbetApi.Controllers
      */
     public class SemesterController : ControllerBase
     {
-        [Authorize(Roles = RoleTypes.Instructor)]
+        //[Authorize(Roles = RoleTypes.Instructor)]
+        [Authorize(Roles = RoleTypes.Assistant)]
         [HttpGet("GetSemesters")]
         //! The GetSemesters function
         /*! 

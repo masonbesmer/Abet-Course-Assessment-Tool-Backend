@@ -43,7 +43,8 @@ namespace AbetApi.Controllers
                 {
                     Admins = await Role.GetUsersByRole("Admin"),
                     Instructors = await Role.GetUsersByRole("Instructor"),
-                    Coordinators = await Role.GetUsersByRole("Coordinator")
+                    Coordinators = await Role.GetUsersByRole("Coordinator"),
+                    Assistants = await Role.GetUsersByRole("Assistant")
                 };
 
                 return Ok(temp);
