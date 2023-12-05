@@ -59,7 +59,7 @@ namespace AbetApi.Controllers
             }
         } //DeleteCourseOutcome
 
-        [Authorize(Roles = RoleTypes.Coordinator)]
+        //[Authorize(Roles = RoleTypes.Coordinator)] needs to be unpermissioned for survey
         [HttpGet("GetCourseOutcomes")]
         public async Task<IActionResult> GetCourseOutcomes(string term, int year, string department, string courseNumber)
         {
@@ -77,7 +77,7 @@ namespace AbetApi.Controllers
             }
         }
 
-        [Authorize(Roles = RoleTypes.Coordinator)]
+        //[Authorize(Roles = RoleTypes.Coordinator)] needs to be unpermissioned for survey
         [HttpGet("GetLinkedMajorOutcomes")]
         public async Task<IActionResult> GetLinkedMajorOutcomes(string term, int year, string department, string courseNumber, string courseOutcomeName, string majorName)
         {
