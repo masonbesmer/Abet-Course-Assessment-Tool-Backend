@@ -1,4 +1,8 @@
-﻿namespace AbetApi.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+
+namespace AbetApi.Models
 {
     //This class is used to package specific data to be sent to the front end, for relevant course info
     public class SectionInfo
