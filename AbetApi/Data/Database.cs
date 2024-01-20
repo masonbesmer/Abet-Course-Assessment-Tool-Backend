@@ -1082,7 +1082,9 @@ namespace AbetApi.Data
             _ = Role.AddRoleToUser("instructor", "Instructor");
             _ = Role.AddRoleToUser("vea0028", "Assistant");
 
-
+            _ = Section.AddAssistantToSection("vea0028", "Fall", 2023, "CSCE", "1030", "777");
+            _ = Section.AddAssistantToSection("vea0028", "Fall", 2023, "CSCE", "1234", "123");
+            _ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1030", "777"); // not working!
         }
 
         // This function is here to run arbitrary code from the database class
