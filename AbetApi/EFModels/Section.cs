@@ -557,7 +557,7 @@ namespace AbetApi.EFModels
             }
         } // AddAssistantToSection
 
-        // Currently does not work correctly.
+        // Works, but is missing checks
         public static async Task RemoveAssistantFromSection(string assistantEUID, string term, int year, string department, string courseNumber, string sectionNumber)
         {
             //Check if the assistantEUID is null or empty
@@ -650,24 +650,24 @@ namespace AbetApi.EFModels
                 }
 
                 User assistant = context.Users.FirstOrDefault(p => p.EUID == assistantEUID);
-
+                
                 //Check if the user is null.
                 if (assistant == null)
                 {
                     throw new ArgumentException("The specified assistant does not exist in the database.");
                 }
-
+                /* This check causes the function to fail
                 bool exists = false;
                 //Check if Assistant is already in the section.
                 foreach (User assistantCheck in tempSection.Assistants)
                 {
-                    if (assistantCheck == assistant)
+                    if (assistantCheck.Equals(assistant))
                     {
                         exists = true;
                     }
                 }
                 if (!exists) throw new ArgumentException("The specified assistant does not exist in the section.");
-
+                */
                 //This uses explicit loading to tell the database we want tempSection.Assistants loaded
                 context.Entry(tempSection).Collection(tempSection => tempSection.Assistants).Load();
 
@@ -804,6 +804,78 @@ namespace AbetApi.EFModels
                         if (section.InstructorEUID == instructorEUID)
                         {
                             sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID));
+                        }
+                    }
+                }
+
+                return sectionInfoList;
+            }
+        }
+
+        //This function will return a list of sections an assistant is helping teach
+        // Has NOT been tested.
+        public static async Task<List<AbetApi.Models.SectionInfo>> GetSectionsByAssistant(string term, int year, string assistantEUID)
+        {
+            //Find the semester
+            //For each course, scan through their sections
+            //for each section, validate if the assistant is part of this course
+            //if no, move on
+            //if yes, build that model object
+
+            //Check if the term is null or empty
+            if (string.IsNullOrEmpty(term))
+            {
+                throw new ArgumentException("The term cannot be empty.");
+            }
+
+            //Check if the year is before the establishment date of the university.
+            if (year < 1890)
+            {
+                throw new ArgumentException("The year cannot be empty, or less than the establishment date of UNT.");
+            }
+
+            //Check if the instructor EUID is null or empty.
+            if (string.IsNullOrEmpty(assistantEUID))
+            {
+                throw new ArgumentException("The assistant EUID cannot be empty.");
+            }
+
+            //Format term to follow a standard.
+            term = term[0].ToString().ToUpper() + term[1..].ToLower();
+            assistantEUID = assistantEUID.ToLower();
+
+            await using (var context = new ABETDBContext())
+            {
+
+                //Try to find the semester specified.
+                Semester semester = context.Semesters.FirstOrDefault(p => p.Term == term && p.Year == year);
+
+                //Check if the semester is null.
+                if (semester == null)
+                {
+                    throw new ArgumentException("The specified semester does not exist in the database.");
+                }
+
+                //Load the courses under that semester and try to find the course specified.
+                context.Entry(semester).Collection(semester => semester.Courses).Load();
+                //Load each section under each course
+                foreach (Course course in semester.Courses)
+                {
+                    context.Entry(course).Collection(course => course.Sections).Load();
+                }
+
+                //scan over all sections, looking for that instructor. If found, add it to the list
+                List<AbetApi.Models.SectionInfo> sectionInfoList = new List<AbetApi.Models.SectionInfo>();
+                foreach (Course course in semester.Courses)
+                {
+                    foreach (Section section in course.Sections)
+                    {
+                        foreach (User user in section.Assistants)
+                        {
+                            if (user.EUID == assistantEUID)
+                            {
+                                sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID));
+                            }
                         }
                     }
                 }
