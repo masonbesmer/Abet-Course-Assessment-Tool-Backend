@@ -882,6 +882,6 @@ namespace AbetApi.EFModels
 
                 return sectionInfoList;
             }
-        }
+        } // GetSectionsByAssistant
     } // Section
 }

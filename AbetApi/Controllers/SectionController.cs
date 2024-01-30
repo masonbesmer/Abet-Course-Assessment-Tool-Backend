@@ -124,6 +124,56 @@ namespace AbetApi.Controllers
             }
         } // DeleteSection
 
+        ////////////////////////////////////////////////////////////////////////////////////
+        // AddAssistantToSection //
+        // string assistantEUID: The EUID of the assistant to be added to the section, such as abc1234
+        // string term:          Semester term, such as Fall or Spring
+        // int year:             School year, such as 2022 or 2023
+        // string department:    Major department, such as CSCE or MEEN
+        // string courseNumber:  Course identifier, such as 3600 for Systems Programming
+        // string sectionNumber: Course section, such as 001 or 002
+        // description:          This function adds a pre-existing assistant to a section
+        ////////////////////////////////////////////////////////////////////////////////////
+        [Authorize(Roles = RoleTypes.Admin)]
+        [HttpDelete("AddAssistantToSection")]
+        public async Task<IActionResult> AddAssistantToSection(string assistantEUID, string term, int year, string department, string courseNumber, string sectionNumber)
+        {
+            try
+            {
+                await Section.AddAssistantToSection(assistantEUID, term, year, department, courseNumber, sectionNumber);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // AddAssistantToSection
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        // RemoveAssistantFromSection //
+        // string assistantEUID: The EUID of the assistant to be removed from the section, such as abc1234
+        // string term:          Semester term, such as Fall or Spring
+        // int year:             School year, such as 2022 or 2023
+        // string department:    Major department, such as CSCE or MEEN
+        // string courseNumber:  Course identifier, such as 3600 for Systems Programming
+        // string sectionNumber: Course section, such as 001 or 002
+        // description:          This function removes a pre-existing assistant from a section
+        ////////////////////////////////////////////////////////////////////////////////////
+        [Authorize(Roles = RoleTypes.Admin)]
+        [HttpDelete("RemoveAssistantFromSection")]
+        public async Task<IActionResult> RemoveAssistantFromSection(string assistantEUID, string term, int year, string department, string courseNumber, string sectionNumber)
+        {
+            try
+            {
+                await Section.RemoveAssistantFromSection(assistantEUID, term, year, department, courseNumber, sectionNumber);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // RemoveAssistantFromSection
+
         [Authorize(Roles = RoleTypes.Instructor)]
         [Authorize(Roles = RoleTypes.Assistant)]
         [HttpGet("GetSectionsByInstructor")]
@@ -137,6 +187,21 @@ namespace AbetApi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
+        } // GetSectionsByInstructor
+
+        [Authorize(Roles = RoleTypes.Instructor)]
+        [Authorize(Roles = RoleTypes.Assistant)]
+        [HttpGet("GetSectionsByAssistant")]
+        public async Task<IActionResult> GetSectionsByAssistant(string term, int year, string assistantEUID)
+        {
+            try
+            {
+                return Ok(await Section.GetSectionsByAssistant(term, year, assistantEUID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // GetSectionsByAssistant
     } // SectionController
 }
