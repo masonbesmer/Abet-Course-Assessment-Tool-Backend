@@ -1085,6 +1085,12 @@ namespace AbetApi.Data
             _ = Section.AddAssistantToSection("vea0028", "Fall", 2023, "CSCE", "1030", "777");
             _ = Section.AddAssistantToSection("vea0028", "Fall", 2023, "CSCE", "1234", "123");
             _ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1030", "777"); // not working!
+
+            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4666", "Advanced Sleeping", "", false, "CSCE"));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "4666", new Section("instructor", false, "456", 60));
+            _ = User.AddUser(new User("Rogers", "Matthew", "mar0468"));
+            _ = Role.AddRoleToUser("mar0468", "Assistant");
+            _ = Section.AddAssistantToSection("mar0468", "Fall", 2023, "CSCE", "4666", "456");
         }
 
         // This function is here to run arbitrary code from the database class
