@@ -7,6 +7,7 @@ using System.Text.Json.Serialization;
 using AbetApi.Data;
 using static System.Collections.Specialized.BitVector32;
 using System.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AbetApi.EFModels
 {
@@ -813,7 +814,7 @@ namespace AbetApi.EFModels
         }
 
         //This function will return a list of sections an assistant is helping teach
-        // Has NOT been tested.
+        // Working as of 02/05/24 (Matt)
         public static async Task<List<AbetApi.Models.SectionInfo>> GetSectionsByAssistant(string term, int year, string assistantEUID)
         {
             //Find the semester
@@ -848,7 +849,8 @@ namespace AbetApi.EFModels
             {
 
                 //Try to find the semester specified.
-                Semester semester = context.Semesters.FirstOrDefault(p => p.Term == term && p.Year == year);
+                var semester = context.Semesters.Include(semester => semester.Courses)
+                    .ThenInclude(course => course.Sections).ThenInclude(section => section.Assistants).FirstOrDefault(p => p.Term == term && p.Year == year);
 
                 //Check if the semester is null.
                 if (semester == null)
@@ -865,7 +867,7 @@ namespace AbetApi.EFModels
                 }
 
                 //scan over all sections, looking for that instructor. If found, add it to the list
-                List<AbetApi.Models.SectionInfo> sectionInfoList = new List<AbetApi.Models.SectionInfo>();
+                var sectionInfoList = new List<AbetApi.Models.SectionInfo>();
                 foreach (Course course in semester.Courses)
                 {
                     foreach (Section section in course.Sections)

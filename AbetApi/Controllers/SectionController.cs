@@ -189,7 +189,7 @@ namespace AbetApi.Controllers
             }
         } // GetSectionsByInstructor
 
-        [Authorize(Roles = RoleTypes.Instructor)]
+        //[Authorize(Roles = RoleTypes.Instructor)]
         [Authorize(Roles = RoleTypes.Assistant)]
         [HttpGet("GetSectionsByAssistant")]
         public async Task<IActionResult> GetSectionsByAssistant(string term, int year, string assistantEUID)
