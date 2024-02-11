@@ -58,7 +58,7 @@ namespace AbetApi.Controllers
         //                       instructorEUID string, isSectioncompleted boolean, 
         //                       sectionNumber string,numberOfStudents int
         ////////////////////////////////////////////////////////////////////////////////////
-        [Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
+        //[Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
         [Authorize(Roles = RoleTypes.Assistant)]
         [HttpGet("GetSection")]
         public async Task<IActionResult> GetSection(string term, int year, string department, string courseNumber, string sectionNumber)
@@ -72,6 +72,32 @@ namespace AbetApi.Controllers
                 return BadRequest(ex.Message);
             }
         } // GetSection
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        // GetSectionAssistant //
+        // string assistantEUID: The EUID of the assistant to search for
+        // string term:          Semester term, such as Fall or Spring
+        // int year:             School year, such as 2022 or 2023
+        // string department:    Major department, such as CSCE or MEEN
+        // string courseNumber:  Course identifier, such as 3600 for Systems Programming
+        // string sectionNumber: Course section, such as 001 or 002
+        // description:          This function gets the assistant EUID from a section as
+        //                       a string IFF the assistant is assigned to the section.
+        ////////////////////////////////////////////////////////////////////////////////////
+        //[Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
+        [Authorize(Roles = RoleTypes.Assistant)]
+        [HttpGet("GetSectionAssistant")]
+        public async Task<IActionResult> GetSectionAssistant(string assistantEUID, string term, int year, string department, string courseNumber, string sectionNumber)
+        {
+            try
+            {
+                return Ok(await Section.GetSectionAssistant(assistantEUID, term, year, department, courseNumber, sectionNumber));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // GetSectionAssistant
 
         ////////////////////////////////////////////////////////////////////////////////////
         // EditSection //
