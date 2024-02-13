@@ -127,6 +127,31 @@ namespace AbetApi.Controllers
         } // EditSection
 
         ////////////////////////////////////////////////////////////////////////////////////
+        // EditComments //
+        // string term:          Semester term, such as Fall or Spring
+        // int year:             School year, such as 2022 or 2023
+        // string department:    Major department, such as CSCE or MEEN
+        // string courseNumber:  Course identifier, such as 3600 for Systems Programming
+        // string sectionNumber: Course section, such as 001 or 002
+        // string newInstructorComment
+        // string newCoordinatorComment
+        // description:          This function edits comments
+        ////////////////////////////////////////////////////////////////////////////////////
+        [HttpPatch("EditComments")]
+        public async Task<IActionResult> EditComments(string term, int year, string department, string courseNumber, string sectionNumber, string newInstructorComment, string newCoordinatorComment)
+        {
+            try
+            {
+                await Section.EditComments(term, year, department, courseNumber, sectionNumber, newInstructorComment, newCoordinatorComment);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // EditSection
+
+        ////////////////////////////////////////////////////////////////////////////////////
         // DeleteSection //
         // string term:          Semester term, such as Fall or Spring
         // int year:             School year, such as 2022 or 2023

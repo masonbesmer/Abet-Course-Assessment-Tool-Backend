@@ -24,6 +24,8 @@ namespace AbetApi.EFModels
         public int NumberOfStudents { get; set; }
         [JsonIgnore]
         public ICollection<Grade> Grades { get; set; }
+        public string InstructorComment { get; set; }
+        public string CoordinatorComment { get; set; }
 
         public Section(string instructorEUID, bool sectionCompleted, string sectionNumber, int numberOfStudents)
         {
@@ -93,6 +95,8 @@ namespace AbetApi.EFModels
             term = term[0].ToString().ToUpper() + term[1..].ToLower();
             department = department.ToUpper();
             section.InstructorEUID = section.InstructorEUID.ToLower();
+            section.InstructorComment = "";
+            section.CoordinatorComment = "";
 
 
             await using (var context = new ABETDBContext())
@@ -467,6 +471,106 @@ namespace AbetApi.EFModels
                 context.SaveChanges();
             }
         } // EditSection
+
+        public static async Task EditComments(string term, int year, string department, string courseNumber, string sectionNumber, string newInstructorComment, string newCoordinatorComment)
+        {
+            //Check if the term is null or empty
+            if (term == null || term == "")
+            {
+                throw new ArgumentException("The term cannot be empty.");
+            }
+
+            //Check if the year is before the establishment date of the university.
+            if (year < 1890)
+            {
+                throw new ArgumentException("The year cannot be empty, or less than the establishment date of UNT.");
+            }
+
+            //Check if the department is null or empty.
+            if (department == null || department == "")
+            {
+                throw new ArgumentException("The department cannot be empty.");
+            }
+
+            //Check if the course number is null or empty.
+            if (courseNumber == null || courseNumber == "")
+            {
+                throw new ArgumentException("The course number cannot be empty.");
+            }
+
+            //Check if the section number is null or empty.
+            if (sectionNumber == null || sectionNumber == "")
+            {
+                throw new ArgumentException("The section number cannot be empty.");
+            }
+
+            //Format term, department, and new instructor EUID to follow a standard. (Assistant EUID are already formatted)
+            term = term[0].ToString().ToUpper() + term[1..].ToLower();
+            department = department.ToUpper();
+
+            await using (var context = new ABETDBContext())
+            {
+                Course tempCourse = null;
+                Section tempSection = null;
+
+                //Try to find the semester specified.
+                Semester semester = context.Semesters.FirstOrDefault(p => p.Term == term && p.Year == year);
+
+                //Check if the semester is null.
+                if (semester == null)
+                {
+                    throw new ArgumentException("The specified semester does not exist in the database.");
+                }
+
+                //Load the courses under that semester and try to find the course specified.
+                context.Entry(semester).Collection(semester => semester.Courses).Load();
+                foreach (Course course in semester.Courses)
+                {
+                    if (course.Department == department && course.CourseNumber == courseNumber)
+                    {
+                        tempCourse = course;
+                        break;
+                    }
+                }
+
+                //Check if course is null.
+                if (tempCourse == null)
+                {
+                    throw new ArgumentException("The specified course does not exist in the database.");
+                }
+
+                //Load the sections under that course and try to find the section specified.
+                context.Entry(tempCourse).Collection(course => course.Sections).Load();
+
+                //Try to find the new section information in the database.
+                foreach (Section section in tempCourse.Sections)
+                {
+
+                    //Find the section specified to edit.
+                    if (section.SectionNumber == sectionNumber)
+                    {
+                        tempSection = section;
+                    }
+                }
+
+                //Check if section is null.
+                if (tempSection == null)
+                {
+                    throw new ArgumentException("The specified section to edit does not exist in the database.");
+                }
+
+                if(newInstructorComment != "null")
+                {
+                    tempSection.InstructorComment = newInstructorComment;
+                }
+                if(newCoordinatorComment != "null")
+                {
+                    tempSection.CoordinatorComment = newCoordinatorComment;
+                }
+
+                context.SaveChanges();
+            }
+        } // EditComments
 
         public static async Task DeleteSection(string term, int year, string department, string courseNumber, string sectionNumber)
         {
