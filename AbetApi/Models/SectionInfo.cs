@@ -9,13 +9,16 @@
         public string InstructorEUID { get; set; }
         public string CoordinatorEUID { get; set; }
 
-        public SectionInfo(string courseFriendlyName, string courseNumber, string sectionNumber, string instructorEUID, string coordinatorEUID)
+        public bool isFormSubmitted { get; set; }
+
+        public SectionInfo(string courseFriendlyName, string courseNumber, string sectionNumber, string instructorEUID, string coordinatorEUID, bool isFormSubmitted)
         {
             this.CourseFriendlyName = courseFriendlyName;
             this.CourseNumber = courseNumber;
             this.SectionNumber = sectionNumber;
             this.InstructorEUID = instructorEUID;
             this.CoordinatorEUID = coordinatorEUID;
+            this.isFormSubmitted = isFormSubmitted;
         }
     }
 }

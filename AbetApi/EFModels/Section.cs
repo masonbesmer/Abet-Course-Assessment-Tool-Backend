@@ -498,7 +498,7 @@ namespace AbetApi.EFModels
                         //Add each section
                         foreach (Section section in course.Sections)
                         {
-                            sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID));
+                            sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID, section.IsFormSubmitted));
                         }
                     }
                 }
@@ -566,7 +566,7 @@ namespace AbetApi.EFModels
                     {
                         if (section.InstructorEUID == instructorEUID)
                         {
-                            sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID));
+                            sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID, section.IsFormSubmitted));
                         }
                     }
                 }
