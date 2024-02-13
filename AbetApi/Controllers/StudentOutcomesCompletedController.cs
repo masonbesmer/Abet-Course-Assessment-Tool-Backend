@@ -41,7 +41,7 @@ namespace AbetApi.Controllers
 
                 foreach(var item in tempList)
                 {
-                    StudentOutcomesCompleted.SetStudentOutcomesCompleted(item.Term, item.Year, item.ClassDepartment, item.CourseNumber, item.SectionName, item.CourseOutcomeName, item.MajorName, item.StudentsCompleted);
+                    await StudentOutcomesCompleted.SetStudentOutcomesCompleted(item.Term, item.Year, item.ClassDepartment, item.CourseNumber, item.SectionName, item.CourseOutcomeName, item.MajorName, item.StudentsCompleted).ConfigureAwait(false);
                 }
                 return Ok();
             }

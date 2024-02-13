@@ -80,10 +80,10 @@ namespace AbetApi.Controllers
         // string sectionNumber: Course section, such as 001 or 002
         // Section NewValue:     NewValue object that contains sectionID int,
         //                       instructorEUID string, isSectionCompleted boolean,
-        //                       sectionNumber string, numberOfStudents int
+        //                       sectionNumber string, numberOfStudents int, isFormSubmitted boolean
         // description:          This function edits the prexisting sections
         ////////////////////////////////////////////////////////////////////////////////////
-        [Authorize(Roles = RoleTypes.Admin)]
+        [Authorize(Roles = RoleTypes.Instructor)]
         [HttpPatch("EditSection")]
         public async Task<IActionResult> EditSection(string term, int year, string department, string courseNumber, string sectionNumber, Section NewValue)
         {

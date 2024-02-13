@@ -403,7 +403,7 @@ namespace AbetApi.EFModels
                     foreach(var section in course.Sections)
                     {
                         //This hard codes all section student totals to 0, because this data doesn't carry over to the next semester
-                        Section.AddSection(newTerm, newYear, course.Department, course.CourseNumber, new Section(section.InstructorEUID, section.IsSectionCompleted, section.SectionNumber, 0));
+                        await Section.AddSection(newTerm, newYear, course.Department, course.CourseNumber, new Section(section.InstructorEUID, section.IsSectionCompleted, section.SectionNumber, 0, false));
                     }
                 }
 

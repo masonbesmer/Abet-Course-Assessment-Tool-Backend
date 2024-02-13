@@ -18,13 +18,15 @@ namespace AbetApi.EFModels
         public int NumberOfStudents { get; set; }
         [JsonIgnore]
         public ICollection<Grade> Grades { get; set; }
+        public bool IsFormSubmitted { get; set; }
 
-        public Section(string instructorEUID, bool sectionCompleted, string sectionNumber, int numberOfStudents)
+        public Section(string instructorEUID, bool sectionCompleted, string sectionNumber, int numberOfStudents, bool isFormSubmitted)
         {
             this.InstructorEUID = instructorEUID;
             this.IsSectionCompleted = sectionCompleted;
             this.SectionNumber = sectionNumber;
             this.NumberOfStudents = numberOfStudents;
+            this.IsFormSubmitted = isFormSubmitted;
         }
 
         public Section()
@@ -127,6 +129,7 @@ namespace AbetApi.EFModels
                         throw new ArgumentException("That section already exists in the database.");
                     }
                 }
+                section.IsFormSubmitted = false;
 
                 //Add the section to the database table, and the course join table, then save changes
                 context.Sections.Add(section);
@@ -213,13 +216,13 @@ namespace AbetApi.EFModels
                         break;
                     }
                 }
-
+                
                 //Check if section is null.
                 if (tempSection == null)
                 {
                     throw new ArgumentException("The specified section does not exist in the database.");
                 }
-
+                
                 return tempSection;
             }
         } // GetSection
@@ -341,6 +344,7 @@ namespace AbetApi.EFModels
                 tempSection.IsSectionCompleted = NewValue.IsSectionCompleted;
                 tempSection.SectionNumber = NewValue.SectionNumber;
                 tempSection.NumberOfStudents = NewValue.NumberOfStudents;
+                tempSection.IsFormSubmitted = NewValue.IsFormSubmitted;
 
                 context.SaveChanges();
             }
