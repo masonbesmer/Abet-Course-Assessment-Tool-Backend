@@ -60,6 +60,9 @@ namespace AbetApi.Controllers
                     case "student":
                         rolesToAdd.Add("Student");
                         break;
+                    case "assistant":
+                        rolesToAdd.Add("Assistant");
+                        break;
                 }
             }
             if (rolesToAdd.Count > 0)

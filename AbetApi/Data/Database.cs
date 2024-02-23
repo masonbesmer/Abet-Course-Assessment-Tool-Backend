@@ -6,6 +6,7 @@ using MySql.Data.EntityFramework;
 using AbetApi.EFModels;
 using AbetApi.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Specialized;
 
 namespace AbetApi.Data
 {
@@ -1062,6 +1063,8 @@ namespace AbetApi.Data
             // _ = Role.CreateRole(new Role("Instructor"));
             // _ = Role.CreateRole(new Role("Student"));
 
+            _ = Role.CreateRole(new Role("Assistant"));
+
             //Gives admin access to:
 
             //Gives instructor access to:
@@ -1069,13 +1072,24 @@ namespace AbetApi.Data
             // _ = Role.AddRoleToUser("admin", "Admin");
 
             // Testing
-            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1234", "Intoduction to Sleeping", "", false, "CSCE"));
-            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("Instructor", false, "123", 60, false));
+            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "1234", "Introduction to Sleeping", "", false, "CSCE"));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("instructor", false, "123", 60, false));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("instructor", false, "321", 60, false));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("instructor", false, "777", 60, false));
 
             _ = User.AddUser(new User("Alcott", "Vincent", "vea0028"));
-            _ = User.AddUser(new User("In", "Structor", "Instructor"));
-            _ = Role.AddRoleToUser("Instructor", "Instructor");
+            _ = User.AddUser(new User("In", "Structor", "instructor"));
+            _ = Role.AddRoleToUser("instructor", "Instructor");
+            _ = Role.AddRoleToUser("vea0028", "Assistant");
 
+            _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "777");
+            _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1234", "123");
+
+            _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4666", "Advanced Sleeping", "", false, "CSCE"));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "4666", new Section("instructor", false, "456", 60, false));
+            _ = User.AddUser(new User("Rogers", "Matthew", "mar0468"));
+            _ = Role.AddRoleToUser("mar0468", "Assistant");
+            _ = Section.AddAssistantToSection("mar0468", "Fall", 2023, "CSCE", "4666", "456");
         }
 
         // This function is here to run arbitrary code from the database class

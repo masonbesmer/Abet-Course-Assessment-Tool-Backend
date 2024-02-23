@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AbetApi.Data;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+using AbetApi.EFModels;
 
 namespace AbetApi.Controllers
 {

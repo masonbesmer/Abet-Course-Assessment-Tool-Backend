@@ -468,5 +468,16 @@ namespace AbetApi.Tests
             Assert.AreNotEqual(result.NumberOfStudents, 9);
             Assert.AreEqual(result.SectionNumber, "000009");
         }
+
+        // Test to add an assistant to a section
+        [TestMethod]
+        public void TestAssistants()
+        {
+
+            //_ = Section.AddAssistantToSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
+
+            _ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
+
+        }
     }
 }

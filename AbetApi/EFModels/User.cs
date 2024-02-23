@@ -50,6 +50,12 @@ namespace AbetApi.EFModels
          *  This is a single line dual function for setting and getting
          */
         public ICollection<Role> Roles { get; set; }
+        [JsonIgnore]
+        //! The Sections setter/getter function
+        /*!
+         *  This is a single line dual function for setting and getting
+         */
+        public ICollection<Section> Sections { get; set; }
 
         //! Paramaterized Constructor
         /*! 
