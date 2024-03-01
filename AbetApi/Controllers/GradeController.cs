@@ -20,7 +20,7 @@ namespace AbetApi.Controllers
             try
             {
                 //Get the specified grades
-                var grades = await Grade.GetGrades(term, year, department, courseNumber, sectionNumber);
+                var grades = await Grade.GetGradesBySection(term, year, department, courseNumber, sectionNumber);
 
                 //Converts the data to a format for the front end and returns the data
                 return Ok(AbetApi.Models.Grade.ConvertToModelGrade(grades));
@@ -46,5 +46,23 @@ namespace AbetApi.Controllers
                 return BadRequest(ex.Message);
             }
         } // GetGrades
+
+        [Authorize(Roles = RoleTypes.Assistant)]
+        [HttpGet("GetGradesByMajor")]
+        public async Task<IActionResult> GetGradesByMajor(string term, int year, string department, string courseNumber, string sectionNumber, string major)
+        {
+            try
+            {
+                // Get the specified grades
+                var grades = await Grade.GetGradesByMajor(term, year, department, courseNumber, sectionNumber, major);
+
+                // Converts the data to a format for the front end and returns the data
+                return Ok(AbetApi.Models.Grade.ConvertToModelGrade(grades));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
