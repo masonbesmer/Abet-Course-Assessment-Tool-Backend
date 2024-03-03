@@ -96,10 +96,19 @@ namespace AbetApi.Models
                     majorDictionary.Value.Add(course.CourseNumber, new int[majorOutcomeColumns]);
 
                     //populate that int array with all 0's
-                    for(int i = 0; i < majorDictionary.Value.Count; i++)
-                    {
-                        majorDictionary.Value[course.CourseNumber][i] = 0;
-                    }
+
+                    /*
+                     * Block of code below was giving out of bounds errors for Fall 2023
+                     * TODO: Will need to revisit in the future to determine if it was important or not
+                     * for (int i = 0; i < majorDictionary.Value.Count; i++)
+                        {
+                            Console.WriteLine("START");
+                            Console.WriteLine(majorDictionary.Value[course.CourseNumber][i]);
+                            majorDictionary.Value[course.CourseNumber][i] = 0;
+                            Console.WriteLine("Finish");
+
+                        }
+                    */
                 }
             }
 
@@ -224,7 +233,9 @@ namespace AbetApi.Models
                         if (calculatedData[major.Key][course.Key][i] == -1)
                             calculatedStringData[major.Key][course.Key][i] = "--";
                         else
-                        calculatedStringData[major.Key][course.Key][i] = calculatedData[major.Key][course.Key][i].ToString("0.0");
+                        {
+                            calculatedStringData[major.Key][course.Key][i] = calculatedData[major.Key][course.Key][i].ToString("0.0");
+                        }
                     }
                 }
             }
@@ -259,7 +270,6 @@ namespace AbetApi.Models
                     {
                         //Loads existing course outcomes
                         context.Entry(course).Collection(course => course.CourseOutcomes).Load();
-
                         //Find the relevant course outcome
                         foreach (CourseOutcome courseOutcome in course.CourseOutcomes)
                         {
