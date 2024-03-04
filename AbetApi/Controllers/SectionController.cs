@@ -111,7 +111,7 @@ namespace AbetApi.Controllers
         //                       sectionNumber string, numberOfStudents int, isFormSubmitted boolean
         // description:          This function edits the prexisting sections
         ////////////////////////////////////////////////////////////////////////////////////
-        [Authorize(Roles = RoleTypes.Instructor)]
+        [Authorize(Roles = RoleTypes.Assistant)]
         [HttpPatch("EditSection")]
         public async Task<IActionResult> EditSection(string term, int year, string department, string courseNumber, string sectionNumber, Section NewValue)
         {

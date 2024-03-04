@@ -440,7 +440,7 @@ namespace AbetApi.Tests
             {
                 Course course = new Course("gtg001", "2022", "TestCourse", "Test Coordinator Comment", true, "FTSY");
                 _ = Course.AddCourse("Spring", 3030, course);
-                Section section = new Section("gtg001", true, "000099", 9);
+                Section section = new Section("gtg001", true, "000099", 9, false);
                 _ = Section.AddSection("Spring", 3030, "FTSY", "2022", section);
                 var result = Section.GetSection("Spring", 3030, "FTSY", "2022", section.SectionNumber).Result;
                 Assert.AreEqual(result.InstructorEUID, section.InstructorEUID);
@@ -457,8 +457,8 @@ namespace AbetApi.Tests
         [TestMethod]
         public void TestEditSection()
         {
-            Section section1 = new Section("gtg001", false, "000005", 10);
-            Section section2 = new Section("gtg001", false, "000009", 10);
+            Section section1 = new Section("gtg001", false, "000005", 10, false);
+            Section section2 = new Section("gtg001", false, "000009", 10, false);
 
             _ = Section.AddSection("Spring", 3031, "FTSY", "2021", section1);
             _ = Section.EditSection("Spring", 3031, "FTSY", "2021", "000005", section2);
@@ -469,14 +469,16 @@ namespace AbetApi.Tests
             Assert.AreEqual(result.SectionNumber, "000009");
         }
 
-        // Test to add an assistant to a section
+        // Custom Test
         [TestMethod]
-        public void TestAssistants()
+        public void Custom()
         {
 
-            //_ = Section.AddAssistantToSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
+            //_ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "001");
 
-            _ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
+            //_ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
+
+            Console.WriteLine(StudentOutcomesCompleted.GetStudentOutcomesCompleted("Fall", 2023, "IT", "1030", "001").ToString());
 
         }
     }

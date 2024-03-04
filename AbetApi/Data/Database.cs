@@ -1080,7 +1080,11 @@ namespace AbetApi.Data
             _ = User.AddUser(new User("Alcott", "Vincent", "vea0028"));
             _ = User.AddUser(new User("In", "Structor", "instructor"));
             _ = Role.AddRoleToUser("instructor", "Instructor");
+            _ = User.AddUser(new User("A", "ssistant", "assistant"));
+            _ = Role.AddRoleToUser("assistant", "Assistant");
             _ = Role.AddRoleToUser("vea0028", "Assistant");
+
+            _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "001");
 
             _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "777");
             _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1234", "123");

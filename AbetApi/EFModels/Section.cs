@@ -1096,7 +1096,7 @@ namespace AbetApi.EFModels
                         {
                             if (user.EUID == assistantEUID)
                             {
-                                sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID, false));
+                                sectionInfoList.Add(new AbetApi.Models.SectionInfo(course.DisplayName, course.CourseNumber, section.SectionNumber, section.InstructorEUID, course.CoordinatorEUID, section.IsFormSubmitted));
                             }
                         }
                     }
