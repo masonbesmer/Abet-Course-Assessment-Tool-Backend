@@ -592,7 +592,7 @@ namespace AbetApi.Data
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4115", "Formal Languages, Automata, and Computability", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4205", "Introduction to Machine Learning", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4210", "Game Programming I", "", false, "CSCE"));
-			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4255", "CProgramming Math and Physics for Games", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4255", "Programming Math and Physics for Games", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4290", "Introduction to Natural Language Processing", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4350", "Fundamentals of Database Systems", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4355", "Database Administration", "", false, "CSCE"));
@@ -601,7 +601,7 @@ namespace AbetApi.Data
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4535", "Introduction to Network Administration", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4555", "Computer Forensics", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4560", "Secure Electronic Commerce", "", false, "CSCE"));
-			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4565", "Secure Software development", "", false, "CSCE"));
+			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4565", "Secure Software Developement", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4575", "Blockchain and Applications", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4600", "Introduction to Operating Systems", "", false, "CSCE"));
 			_ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4620", "Real-Time Operating Systems", "", false, "CSCE"));
@@ -793,8 +793,23 @@ namespace AbetApi.Data
             _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("4", "An ability to recognize professional responsibilities and make informed judgements in computing practice based on legal and ethical principles."));
             _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("5", "An ability to function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline."));
             _ = MajorOutcome.AddMajorOutcome("Fall", 2023, "IT", new MajorOutcome("6", "An ability to identify and analyze user needs and to take them into account in the selection, creation, integration, evaluation, and administration of computing-based systems."));
-			
-			// add course outcome to course
+
+            // add course outcome to course
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("1", "Students will practice and enhance their creative abilities within the development of software."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("2", "Students will use abstraction to reduce information and detail in order to facilitate focus on relevant topics. In software this typically occurs both in designing algorithms and creating modules within their programs."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("3", "Students will access and summarize available data to create information and evaluate information to create knowledge."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("4", "Students will develop, evaluate and use algorithms in defining solutions to computational problems."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("5", "Students will create software that enables problem solving, human expression and creation of knowledge."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("6", "Students will both describe how the internet pervades modern computing and make effective and ethical use of the internet in solving problems."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1010", new CourseOutcome("7", "Students will recognize, discuss and describe the global impacts of computing."));
+
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1020", new CourseOutcome("1", "Understand programming and problem solving."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1020", new CourseOutcome("2", "Understand and be able to develop algorithms."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1020", new CourseOutcome("3", "Be able to develop, design and implement simple computer programs."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1020", new CourseOutcome("4", "Understand how to perform basic debugging of existing programs."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1020", new CourseOutcome("5", "Understand functions and parameter passing."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1020", new CourseOutcome("6", "Be able to do numeric (algebraic) and string based computation."));
+
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("1", "Describe how a computer’s CPU, Main Memory, Secondary Storage and I/O work together to execute a computer program."));
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("2", "Make use of a computer system’s hardware, editor(s), operating system, system software and network to build computer software and submit that software for grading."));
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("3", "Describe algorithms to perform “simple” tasks such as numeric computation, searching and sorting, choosing among several options, string manipulation, and use of pseudo-random numbers in simulation of such tasks as rolling dice."));
@@ -802,8 +817,49 @@ namespace AbetApi.Data
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("5", "Use commonly accepted practices and tools to find and fix runtime and logical errors in software."));
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("6", "Describe a software process model that can be used to develop significant applications composed of hundreds of functions."));
             _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1030", new CourseOutcome("7", "Perform the steps necessary to edit, compile, link and execute C/C++ programs."));
-			
-			// link major outcomes to course outcomes **STUDENT OUTCOME TO COURSE OUTCOME**
+
+            // 1035: No Outcomes
+
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("1", "Write readable, efficient, and correct C++ programs for all programming constructs defined for Programming Fundamentals I plus dynamic memory allocation, bit manipulation operators, exceptions, classes and inheritance."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("2", "Design and implement recursive algorithms in C/C++."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("3", "Use common data structures and techniques such as stacks, queues, linked lists, trees and hashing."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("4", "Create programs using the Standard Template Library."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("5", "Use a symbolic debugger to find and fix runtime and logical errors in C software."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("6", "Using a software process model, design and implement a significant software application in C++. Significant software in this context means a software application with at least five files, ten functions and a make file."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "1040", new CourseOutcome("7", "Implement, compile and run C++ programs that includes classes, inheritance, virtual functions, function overloading and overriding, as well as other aspects of Polymorphism."));
+
+            // 1045: No Outcomes
+
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("1", "Demonstrate a solid foundation in conceptual and formal models by describing loop structures in summation and/or product notation."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("2", "Use abstraction in the design and implementation of algorithms."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("3", "Design programming solutions to “simple” problems and implement those designs in C or C++."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("4", "Apply big-Oh notation to evaluate and compare algorithms and programs."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("5", "Use combinatorics and conditional probability in solving real-world problems."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("6", "Define the basic operations of sets, functions, relations, trees and graphs."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2100", new CourseOutcome("7", "Demonstrate an introductory knowledge of formal languages by using regular expressions, deterministic finite automata and non-deterministic finite automata to describe patterns in strings."));
+
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("1", "Use of graph data structures in design of software."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("2", "Use of table data structures in design of software."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("3", "Use of set data structures in design of software."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("4", "Use of C++ classes to implement graphs, sets and relational data structures."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("5", "Use of context-free grammars to describe patterns."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("6", "The ability to describe assertions in propositional logic form."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2110", new CourseOutcome("7", "Use of amortized analysis to evaluate efficiency of data structure such as splay trees and O(1) expansion of tables."));
+
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2610", new CourseOutcome("1", "Understand the role of the different classes and components in a computer system and the interface between software and hardware in a computer system."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2610", new CourseOutcome("2", "Apply metrics to evaluate performance of a computer system using clock rate and clock cycles per instruction (CPI). Understand the different aspects of execution times reported when program complete their execution."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2610", new CourseOutcome("3", "Understand instruction set choices and write assembly language programs for simple C code and codes that include procedures."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2610", new CourseOutcome("4", "Perform integer and floating point calculations using computer arithmetic algorithms."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2610", new CourseOutcome("5", "Describe the organization of a simple processor with data path and control path for simple instructions."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "2610", new CourseOutcome("6", "Describe the requirement of memory hierarchy and evaluate the performance of different cache organizations."));
+
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "3010", new CourseOutcome("1", "Understand the mathematical descriptions of continuous-time (CT) and discrete-time (DT) signals."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "3010", new CourseOutcome("2", "Understand the characteristics and properties of real systems."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "3010", new CourseOutcome("3", "Analyze signals and systems in both the time and frequency domain."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "3010", new CourseOutcome("4", "Gain experience with CT and DT Fourier series."));
+            _ = CourseOutcome.CreateCourseOutcome("Fall", 2023, "CSCE", "3010", new CourseOutcome("5", "Apply the properties of the Fourier transform, Laplace transform and z-transform to real systems."));
+
+            // link major outcomes to course outcomes **STUDENT OUTCOME TO COURSE OUTCOME**
             // 1030 CE
             _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "3", "CE", "1");
             _ = CourseOutcome.LinkToMajorOutcome("Fall", 2023, "CSCE", "1030", "4", "CE", "1");
@@ -1076,6 +1132,7 @@ namespace AbetApi.Data
             _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("instructor", false, "123", 60, false));
             _ = Section.AddSection("Fall", 2023, "CSCE", "1234", new Section("instructor", false, "321", 60, false));
             _ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("instructor", false, "777", 60, false));
+            _ = Section.AddSection("Fall", 2023, "CSCE", "1030", new Section("instructor", false, "888", 60, false));
 
             _ = User.AddUser(new User("Alcott", "Vincent", "vea0028"));
             _ = User.AddUser(new User("In", "Structor", "instructor"));
@@ -1087,6 +1144,7 @@ namespace AbetApi.Data
             _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "001");
 
             _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "777");
+            _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1030", "888");
             _ = Section.AddAssistantToSection("assistant", "Fall", 2023, "CSCE", "1234", "123");
 
             _ = Course.AddCourse("Fall", 2023, new Course("coordinator", "4666", "Advanced Sleeping", "", false, "CSCE"));

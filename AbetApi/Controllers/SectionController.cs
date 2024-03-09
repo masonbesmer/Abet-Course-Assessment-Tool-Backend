@@ -100,6 +100,31 @@ namespace AbetApi.Controllers
         } // GetSectionAssistant
 
         ////////////////////////////////////////////////////////////////////////////////////
+        // GetAssistantsFromSection //
+        // string term:          Semester term, such as Fall or Spring
+        // int year:             School year, such as 2022 or 2023
+        // string department:    Major department, such as CSCE or MEEN
+        // string courseNumber:  Course identifier, such as 3600 for Systems Programming
+        // string sectionNumber: Course section, such as 001 or 002
+        // description:          This function returns the entire list of Teaching Assistants
+        //                       assigned to the specified section.
+        ////////////////////////////////////////////////////////////////////////////////////
+        //[Authorize(Roles = RoleTypes.Instructor)] // Fall 2022 changed this to instructor. Front end calls
+        [Authorize(Roles = RoleTypes.Assistant)]
+        [HttpGet("GetAssistantsFromSection")]
+        public async Task<IActionResult> GetAssistantsFromSection(string assistantEUID, string term, int year, string department, string courseNumber, string sectionNumber)
+        {
+            try
+            {
+                return Ok(await Section.GetAssistantsFromSection(term, year, department, courseNumber, sectionNumber));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // GetAssistantsFromSection
+
+        ////////////////////////////////////////////////////////////////////////////////////
         // EditSection //
         // string term:          Semester term, such as Fall or Spring
         // int year:             School year, such as 2022 or 2023
