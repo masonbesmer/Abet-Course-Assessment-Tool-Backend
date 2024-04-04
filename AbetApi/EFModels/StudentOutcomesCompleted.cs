@@ -77,6 +77,16 @@ namespace AbetApi.EFModels
             }
         }
 
+        public async static Task<List<StudentOutcomesCompleted>> GetCourseStudentOutcomesCompleted(string Term, int Year, string ClassDepartment, string CourseNumber)
+        {
+            await using (var context = new ABETDBContext())
+            {
+                List<StudentOutcomesCompleted> studentOutcomesCompleted = context.StudentOutcomesCompleted.Where<StudentOutcomesCompleted>(p => p.Term == Term && p.Year == Year && p.ClassDepartment == ClassDepartment && p.CourseNumber == CourseNumber).ToList();
+
+                return studentOutcomesCompleted;
+            }
+        }
+
         public async static Task<List<StudentOutcomesCompleted>> GetSemesterStudentOutcomesCompleted(string Term, int Year)
         {
             await using (var context = new ABETDBContext())

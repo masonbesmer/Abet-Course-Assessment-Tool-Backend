@@ -31,6 +31,23 @@ namespace AbetApi.Controllers
             }
         } // GetGrades
 
+        [Authorize(Roles = RoleTypes.Admin)]
+        [HttpGet("GetGradesByCourse")]
+        public async Task<IActionResult> GetGradesByCourse(string term, int year, string department, string courseNumber)
+        {
+            try
+            {
+                //Get the specified grades
+                var grades = await Grade.GetGradesByCourse(term, year, department, courseNumber);
+
+                return Ok(grades);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // GetGrades
+
         [Authorize(Roles = RoleTypes.Assistant)]
         [HttpPost("SetGrades")]
         public async Task<IActionResult> SetGrades(string term, int year, string department, string courseNumber, string sectionNumber, Dictionary<string, AbetApi.Models.Grade> gradesDictionary)
