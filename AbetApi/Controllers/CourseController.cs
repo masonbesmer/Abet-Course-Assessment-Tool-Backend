@@ -94,6 +94,21 @@ namespace AbetApi.Controllers
         } // GetSections
 
         [Authorize(Roles = RoleTypes.Coordinator)]
+        [HttpGet("GetNumberOfSectionsInCourse")]
+        public async Task<IActionResult> GetNumberOfSectionsInCourse(string term, int year, string department, string courseNumber)
+        {
+            try
+            {
+                return Ok(await Course.GetNumberOfSectionsInCourse(term, year, department, courseNumber));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return BadRequest(ex.Message);
+            }
+        } // GetNumberOfSectionsInCourse
+
+        [Authorize(Roles = RoleTypes.Coordinator)]
         [HttpGet("GetMajorsThatRequireCourse")]
         public async Task<IActionResult> getMajorsThatRequireCourse(string term, int year, string department, string courseNumber)
         {

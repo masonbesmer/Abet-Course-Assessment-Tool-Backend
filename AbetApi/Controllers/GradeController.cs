@@ -31,7 +31,7 @@ namespace AbetApi.Controllers
             }
         } // GetGrades
 
-        [Authorize(Roles = RoleTypes.Admin)]
+        [Authorize(Roles = RoleTypes.Coordinator)]
         [HttpGet("GetGradesByCourse")]
         public async Task<IActionResult> GetGradesByCourse(string term, int year, string department, string courseNumber)
         {
@@ -40,7 +40,7 @@ namespace AbetApi.Controllers
                 //Get the specified grades
                 var grades = await Grade.GetGradesByCourse(term, year, department, courseNumber);
 
-                return Ok(grades);
+                return Ok(AbetApi.Models.Grade.ConvertToModelGrade(grades));
             }
             catch (Exception ex)
             {

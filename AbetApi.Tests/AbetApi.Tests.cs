@@ -478,7 +478,7 @@ namespace AbetApi.Tests
 
             //_ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
 
-            Console.WriteLine(StudentOutcomesCompleted.GetStudentOutcomesCompleted("Fall", 2023, "IT", "1030", "001").ToString());
+            Grade.GetGradesByCourse("Fall", 2023, "CSCE", "1030");
 
         }
     }

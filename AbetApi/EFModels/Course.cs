@@ -441,6 +441,88 @@ namespace AbetApi.EFModels
             }
         } // GetSections
 
+        // This function returns the number of sections in a course
+        public static async Task<int> GetNumberOfSectionsInCourse(string term, int year, string department, string courseNumber)
+        {
+            //Check if the term is null or empty.
+            if (term == null || term == "")
+            {
+                throw new ArgumentException("The term cannot be empty.");
+            }
+
+            //Check if the year is before the establishment date of the university.
+            if (year < 1890)
+            {
+                throw new ArgumentException("The year cannot be empty, or less than the establishment date of UNT.");
+            }
+
+            //Check if the course number is null or empty.
+            if (courseNumber == null || courseNumber == "")
+            {
+                throw new ArgumentException("The course number cannot be empty.");
+            }
+
+            //Check if the department is null or empty.
+            if (department == null || department == "")
+            {
+                throw new ArgumentException("The department cannot be empty.");
+            }
+
+            //Format term and department to follow a standard.
+            term = term[0].ToString().ToUpper() + term[1..].ToLower();
+            department = department.ToUpper();
+
+            await using (var context = new ABETDBContext())
+            {
+                //Try to find the specified semester in the database.
+                Semester semester = context.Semesters.FirstOrDefault(p => p.Term == term && p.Year == year);
+
+                //If it does not exist, throw an exception.
+                if (semester == null)
+                {
+                    throw new ArgumentException("The specified semester does not exist in the database.");
+                }
+
+                //Load the courses under the specified semester.
+                context.Entry(semester).Collection(semester => semester.Courses).Load();
+
+                //Check that the specified semester has courses under it.
+                if (semester.Courses.Count == 0)
+                {
+                    throw new ArgumentException("The specified semester has no courses.");
+                }
+
+                int result = 0;
+
+                //Try to find the course specified.
+                foreach (Course course in semester.Courses)
+                {
+                    if (course.Department == department && course.CourseNumber == courseNumber)
+                    {
+                        //Load the sections under that course.
+                        context.Entry(course).Collection(course => course.Sections).Load();
+
+                        //Check that the specified course has sections under it.
+                        if (course.Sections.Count == 0)
+                        {
+                            return result;
+                        }
+                        else
+                        {
+                            foreach (Section section in course.Sections)
+                            {
+                                result++;
+                            }
+
+                            return result;
+                        }
+                    }
+                }
+
+                throw new ArgumentException("The course specified does not exist in the database.");
+            }
+        } // GetNumberOfSectionsInCourse
+
         public static async Task<List<string>> getMajorsThatRequireCourse(string term, int year, string department, string courseNumber)
         {
             //Check if the term is null or empty.

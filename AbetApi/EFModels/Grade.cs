@@ -236,7 +236,7 @@ namespace AbetApi.EFModels
             }
         } // GetGradesBySection
 
-        public static async Task<List<List<Grade>>> GetGradesByCourse(string term, int year, string department, string courseNumber)
+        public static async Task<List<Grade>> GetGradesByCourse(string term, int year, string department, string courseNumber)
         {
             //Check if the term is null or empty.
             if (term == null || term == "")
@@ -293,14 +293,72 @@ namespace AbetApi.EFModels
                 //Load the sections under the course specified.
                 context.Entry(tempCourse).Collection(course => course.Sections).Load();
 
-                List<List<Grade>> grades = new List<List<Grade>>();
+                Grade CSgrades = new Grade();
+                Grade CEgrades = new Grade();
+                Grade ITgrades = new Grade();
+                Grade CYSgrades = new Grade();
 
                 //Try to find the section specified. If we find it return the grades from that section.
                 foreach (Section section in tempCourse.Sections)
                 {
-                    grades.Add(section.Grades.ToList());
+                    context.Entry(section).Collection(section => section.Grades).Load();
+                    
+                    foreach (Grade grade in section.Grades)
+                    {
+                        switch(grade.Major)
+                        {
+                            case "CS":
+                                CSgrades.A += grade.A;
+                                CSgrades.B += grade.B;
+                                CSgrades.C += grade.C;
+                                CSgrades.D += grade.D;
+                                CSgrades.F += grade.F;
+                                CSgrades.W += grade.W;
+                                CSgrades.I += grade.I;
+                                break;
+
+                            case "CE":
+                                CEgrades.A += grade.A;
+                                CEgrades.B += grade.B;
+                                CEgrades.C += grade.C;
+                                CEgrades.D += grade.D;
+                                CEgrades.F += grade.F;
+                                CEgrades.W += grade.W;
+                                CEgrades.I += grade.I;
+                                break;
+
+                            case "IT":
+                                ITgrades.A += grade.A;
+                                ITgrades.B += grade.B;
+                                ITgrades.C += grade.C;
+                                ITgrades.D += grade.D;
+                                ITgrades.F += grade.F;
+                                ITgrades.W += grade.W;
+                                ITgrades.I += grade.I;
+                                break;
+
+                            case "CYS":
+                                CYSgrades.A += grade.A;
+                                CYSgrades.B += grade.B;
+                                CYSgrades.C += grade.C;
+                                CYSgrades.D += grade.D;
+                                CYSgrades.F += grade.F;
+                                CYSgrades.W += grade.W;
+                                CYSgrades.I += grade.I;
+                                break;
+
+                            default: Console.WriteLine(grade.Major);  break;
+                        }
+                    }
                 }
-                return grades;
+
+                return new List<Grade>
+                {
+                    CSgrades,
+                    CEgrades,
+                    ITgrades,
+                    CYSgrades
+                }; ;
             }
         } // GetGradesByCourse
 
