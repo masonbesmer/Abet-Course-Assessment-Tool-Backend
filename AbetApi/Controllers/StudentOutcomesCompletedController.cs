@@ -26,6 +26,20 @@ namespace AbetApi.Controllers
             }
         } // GetStudentOutcomesCompleted
 
+        [Authorize(Roles = RoleTypes.Admin)]
+        [HttpGet("GetCourseStudentOutcomesCompleted")]
+        public async Task<IActionResult> GetCourseStudentOutcomesCompleted(string term, int year, string department, string courseNumber)
+        {
+            try
+            {
+                return Ok(AbetApi.Models.StudentOutcomesCompleted.ConvertToModelStudentOutcomesCompleted(term, year, department, courseNumber, StudentOutcomesCompleted.GetCourseStudentOutcomesCompleted(term, year, department, courseNumber).Result));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // GetCourseStudentOutcomesCompleted
+
         [Authorize(Roles = RoleTypes.Assistant)]
         [HttpPost("SetStudentOutcomesCompleted")]
         public async Task<IActionResult> SetStudentOutcomesCompleted(string term, int year, string department, string courseNumber, string sectionNumber, List<Dictionary<string, string>> studentOutcomesCompletedDictionary)
