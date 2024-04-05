@@ -479,6 +479,7 @@ namespace AbetApi.Tests
 
             //_ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
 
+            /*
             List<Dictionary<string, string>> dict = AbetApi.Models.StudentOutcomesCompleted.ConvertToModelStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030", AbetApi.EFModels.StudentOutcomesCompleted.GetCourseStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030").Result);
 
             foreach(Dictionary<string,string> kvp in dict)
@@ -490,10 +491,22 @@ namespace AbetApi.Tests
                     Console.WriteLine(pair.Key + " --- " + pair.Value);
                 }
             }
+            */
 
-            //Console.WriteLine(dict.ToString());
+            List<AbetApi.EFModels.Grade> grades = AbetApi.EFModels.Grade.GetGradesByCourse("Fall", 2023, "CSCE", "1030").Result;
 
-            //StudentOutcomesCompleted.GetCourseStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030");
+            foreach (AbetApi.EFModels.Grade grade in grades)
+            {
+                Console.WriteLine("Major: " + grade.Major);
+                Console.WriteLine("A: " + grade.A);
+                Console.WriteLine("B: " + grade.B);
+                Console.WriteLine("C: " + grade.C);
+                Console.WriteLine("D: " + grade.D);
+                Console.WriteLine("F: " + grade.F);
+                Console.WriteLine("W: " + grade.W);
+                Console.WriteLine("I: " + grade.I);
+                Console.WriteLine("Total Students: " + grade.TotalStudents);
+            }
 
         }
     }

@@ -293,10 +293,10 @@ namespace AbetApi.EFModels
                 //Load the sections under the course specified.
                 context.Entry(tempCourse).Collection(course => course.Sections).Load();
 
-                Grade CSgrades = new Grade();
-                Grade CEgrades = new Grade();
-                Grade ITgrades = new Grade();
-                Grade CYSgrades = new Grade();
+                Grade CSgrades = new Grade("CS", 0, 0, 0, 0, 0, 0, 0, 0);
+                Grade CEgrades = new Grade("CE", 0, 0, 0, 0, 0, 0, 0, 0);
+                Grade ITgrades = new Grade("IT", 0, 0, 0, 0, 0, 0, 0, 0);
+                Grade CYSgrades = new Grade("CYS", 0, 0, 0, 0, 0, 0, 0, 0);
 
                 //Try to find the section specified. If we find it return the grades from that section.
                 foreach (Section section in tempCourse.Sections)
@@ -315,6 +315,7 @@ namespace AbetApi.EFModels
                                 CSgrades.F += grade.F;
                                 CSgrades.W += grade.W;
                                 CSgrades.I += grade.I;
+                                CSgrades.TotalStudents += grade.TotalStudents;
                                 break;
 
                             case "CE":
@@ -325,6 +326,7 @@ namespace AbetApi.EFModels
                                 CEgrades.F += grade.F;
                                 CEgrades.W += grade.W;
                                 CEgrades.I += grade.I;
+                                CEgrades.TotalStudents += grade.TotalStudents;
                                 break;
 
                             case "IT":
@@ -335,6 +337,7 @@ namespace AbetApi.EFModels
                                 ITgrades.F += grade.F;
                                 ITgrades.W += grade.W;
                                 ITgrades.I += grade.I;
+                                ITgrades.TotalStudents += grade.TotalStudents;
                                 break;
 
                             case "CYS":
@@ -345,6 +348,7 @@ namespace AbetApi.EFModels
                                 CYSgrades.F += grade.F;
                                 CYSgrades.W += grade.W;
                                 CYSgrades.I += grade.I;
+                                CYSgrades.TotalStudents += grade.TotalStudents;
                                 break;
 
                             default: Console.WriteLine(grade.Major);  break;
