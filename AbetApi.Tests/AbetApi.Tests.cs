@@ -2,7 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System;
-
+using AbetApi.Models;
+using System.Linq;
 
 namespace AbetApi.Tests
 {
@@ -478,7 +479,21 @@ namespace AbetApi.Tests
 
             //_ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
 
-            Grade.GetGradesByCourse("Fall", 2023, "CSCE", "1030");
+            List<Dictionary<string, string>> dict = AbetApi.Models.StudentOutcomesCompleted.ConvertToModelStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030", AbetApi.EFModels.StudentOutcomesCompleted.GetCourseStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030").Result);
+
+            foreach(Dictionary<string,string> kvp in dict)
+            {
+                Console.WriteLine(dict.ToString());
+
+                foreach (KeyValuePair<string, string> pair in kvp.ToList() )
+                {
+                    Console.WriteLine(pair.Key + " --- " + pair.Value);
+                }
+            }
+
+            //Console.WriteLine(dict.ToString());
+
+            //StudentOutcomesCompleted.GetCourseStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030");
 
         }
     }

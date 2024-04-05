@@ -79,12 +79,37 @@ namespace AbetApi.EFModels
 
         public async static Task<List<StudentOutcomesCompleted>> GetCourseStudentOutcomesCompleted(string Term, int Year, string ClassDepartment, string CourseNumber)
         {
-            await using (var context = new ABETDBContext())
-            {
-                List<StudentOutcomesCompleted> studentOutcomesCompleted = context.StudentOutcomesCompleted.Where<StudentOutcomesCompleted>(p => p.Term == Term && p.Year == Year && p.ClassDepartment == ClassDepartment && p.CourseNumber == CourseNumber).ToList();
+
+            List<StudentOutcomesCompleted> studentOutcomesCompleted = new List<StudentOutcomesCompleted>();
+
+            //await using (var context = new ABETDBContext())
+            //{
+                List<Section> course = await Course.GetSectionsByCourse(Term, Year, ClassDepartment, CourseNumber);
+
+                foreach (Section section in course)
+                {
+
+                    List<StudentOutcomesCompleted> list = await StudentOutcomesCompleted.GetStudentOutcomesCompleted(Term, Year, ClassDepartment, CourseNumber, section.SectionNumber);
+
+                    foreach (StudentOutcomesCompleted outcomes in list)
+                    {
+
+                        if (studentOutcomesCompleted.Exists(p => p.MajorName == outcomes.MajorName && p.CourseOutcomeName == outcomes.CourseOutcomeName))
+                        {
+                            studentOutcomesCompleted.FirstOrDefault(p => p.MajorName == outcomes.MajorName && p.CourseOutcomeName == outcomes.CourseOutcomeName).StudentsCompleted += outcomes.StudentsCompleted;
+                        }
+                        else
+                        {
+                            studentOutcomesCompleted.Add(outcomes);
+                        }
+                    }
+                    
+                }
+
+               
 
                 return studentOutcomesCompleted;
-            }
+            //}
         }
 
         public async static Task<List<StudentOutcomesCompleted>> GetSemesterStudentOutcomesCompleted(string Term, int Year)
