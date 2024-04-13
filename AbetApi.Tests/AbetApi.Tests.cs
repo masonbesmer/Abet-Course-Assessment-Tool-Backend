@@ -479,12 +479,12 @@ namespace AbetApi.Tests
 
             //_ = Section.RemoveAssistantFromSection("vea0028", "Fall", 2023, "CSCE", "1010", "001");
 
+            // GetCourseStudentOutcomesCompleted Test
             /*
             List<Dictionary<string, string>> dict = AbetApi.Models.StudentOutcomesCompleted.ConvertToModelStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030", AbetApi.EFModels.StudentOutcomesCompleted.GetCourseStudentOutcomesCompleted("Fall", 2023, "CSCE", "1030").Result);
 
             foreach(Dictionary<string,string> kvp in dict)
             {
-                Console.WriteLine(dict.ToString());
 
                 foreach (KeyValuePair<string, string> pair in kvp.ToList() )
                 {
@@ -493,6 +493,8 @@ namespace AbetApi.Tests
             }
             */
 
+            // GetGradesByCourse Test
+            /*
             List<AbetApi.EFModels.Grade> grades = AbetApi.EFModels.Grade.GetGradesByCourse("Fall", 2023, "CSCE", "1030").Result;
 
             foreach (AbetApi.EFModels.Grade grade in grades)
@@ -507,7 +509,15 @@ namespace AbetApi.Tests
                 Console.WriteLine("I: " + grade.I);
                 Console.WriteLine("Total Students: " + grade.TotalStudents);
             }
+            */
 
+            // Get CoursesCompleted Test
+            Semester.GetCoursesCompleted("Fall", 2023);
+            Dictionary<string, bool> dict = Semester.GetCoursesCompleted("Fall", 2023).Result;
+            foreach(KeyValuePair<string, bool> pair in dict)
+            {
+                Console.WriteLine(pair.Key + " --- " + pair.Value);
+            }
         }
     }
 }

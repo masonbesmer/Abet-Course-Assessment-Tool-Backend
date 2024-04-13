@@ -110,5 +110,26 @@ namespace AbetApi.Controllers
                 return BadRequest(ex.Message);
             }
         } // DeleteSemester
+
+        [Authorize(Roles = RoleTypes.Coordinator)]
+        [HttpGet("GetCoursesCompleted")]
+        //! The GetCoursesCompleted function
+        /*! 
+         * This function gets the completion status of all courses in a semester as a Dictionary with course number as the key, and completion status as the value.
+         * Returns a 200 OK if successful, otherwise a 400 bad request with the argument exception message
+         */
+        public async Task<IActionResult> GetCoursesCompleted(string Term, int Year)
+        {
+            try
+            {
+                var result = await Semester.GetCoursesCompleted(Term, Year);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // GetSemesters
     } // SemesterController
 }

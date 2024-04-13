@@ -335,6 +335,70 @@ namespace AbetApi.EFModels
             }
         }
 
+        //! The GetCoursesCompleted function
+        /*! 
+         * This function gets the completion status of each course in a semester and returns it as a dictionary of (string) course numbers associated with (boolean) course completion status.
+         * It first checks to see if the semester term is null and that the year is greater than 1890 (throws and exception otherwise).
+         * It then formats the term spring to a standard and checks if the semester exists (throws an exception otherwise). It then retrieves the courses
+         * and iterates through them to check if all sections of the course have been completed.
+         * \param Term The Term (Fall/Spring) for the given semester
+         * \param year The year for the given semester
+         */
+        public static async Task<Dictionary<string, bool>> GetCoursesCompleted(string term, int year)
+        {
+            Dictionary<string, bool> DictOfCourseCompletion = new Dictionary<string, bool>();
+
+            //Check that the term of the semester is not null or empty..
+            if (term == null || term == "")
+            {
+                throw new ArgumentException("The term for which semester's courses to display cannot be empty.");
+            }
+
+            //Check that the year is not before the establishment of the university.
+            if (year < 1890)
+            {
+                throw new ArgumentException("The year for which semester's courses to display cannot be empty, or less than the establishment date of UNT.");
+            }
+
+            //Format the term string to follow a standard.
+            term = term[0].ToString().ToUpper() + term[1..].ToLower();
+
+            await using (var context = new ABETDBContext())
+            {
+                //Try to find the specified semester.
+                Semester semester = context.Semesters.FirstOrDefault(p => p.Term == term && p.Year == year);
+
+                //Throw an exception if the semester specified does not exist.
+                if (semester == null)
+                {
+                    throw new ArgumentException("The semester specified does not exist in the database.");
+                }
+
+                context.Entry(semester).Collection(semester => semester.Courses).Load();
+
+                foreach (Course course in semester.Courses.ToList())
+                {
+                    context.Entry(course).Collection(course => course.Sections).Load();
+
+                    bool CourseCompleted = true;
+
+                    foreach (Section section in course.Sections.ToList())
+                    {
+                        // If ANY section is not submitted, then the course is counted as incomplete.
+                        if (section.IsFormSubmitted == false)
+                        {
+                            CourseCompleted = false;
+                            break;
+                        }
+                    }
+
+                    DictOfCourseCompletion.Add(course.CourseNumber, CourseCompleted);
+                }
+
+                return DictOfCourseCompletion;
+            }
+        }
+
         //The deep copy function is for bringing over data from previous semesters, so that personnel entering data don't have to enter the same data for hundreds of courses/sections manually
         //It should copy semesters, courses, sections, section outcomes, majors, major outcomes
         //This function takes a new semester and reads old semester data in to it
