@@ -279,5 +279,34 @@ namespace AbetApi.Controllers
                 return BadRequest(ex.Message);
             }
         } // GetSectionsByAssistant
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        // RemoveAssistantFromSection //
+        // string term:          Semester term, such as Fall or Spring
+        // int year:             School year, such as 2022 or 2023
+        // string department:    Major department, such as CSCE or MEEN
+        // string courseNumber:  Course identifier, such as 3600 for Systems Programming
+        // string sectionNumber: Course section, such as 001 or 002
+        // description:          Get a list of Assistants for a selected selection
+        ////////////////////////////////////////////////////////////////////////////////////
+        ///
+
+        [Authorize(Roles = RoleTypes.Admin)]
+        [HttpDelete("RemoveAssistantFromSection")]
+        public async Task<IActionResult> GetAssistantsFromSection(string term, int year, string department, string courseNumber, string sectionNumber)
+        {
+            // (string term, int year, string department, string courseNumber, string sectionNumber)
+            try
+            {
+                await Section.GetAssistantsFromSection(term, year, department, courseNumber, sectionNumber);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } // RemoveAssistantFromSection
+
     } // SectionController
+
 }
